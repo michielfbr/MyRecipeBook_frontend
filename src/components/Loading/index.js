@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <div className="loading_spinner">
       <Spinner animation="border" role="status">
-        <span className="sr-only">Loading...</span>
+        <span className="sr-only"></span>
       </Spinner>
     </div>
   );
