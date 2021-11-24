@@ -1,23 +1,24 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Jumbotron } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import { fetchAllRecipes } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";
-import { selectAllRecipes } from "../../store/recipe/selectors";
+import { selectUser } from "../../store/user/selectors";
+import { selectRecipes } from "../../store/recipe/selectors";
 
 export default function RecipeBrowser() {
   const dispatch = useDispatch();
-  const recipes = useSelector(selectAllRecipes);
+  const user = useSelector(selectUser)
+  const recipes = useSelector(selectRecipes);
+  const userId = user.id
 
   useEffect(() => {
-    dispatch(fetchAllRecipes());
-  }, [dispatch]);
+    dispatch(fetchAllRecipes(userId));
+  }, [dispatch, userId]);
 
   return (
     <Jumbotron>
       <h1>Recipe Browser</h1>
-
       <div>
         {!recipes ? (
           <></>
@@ -48,11 +49,11 @@ export default function RecipeBrowser() {
                     <h4>{recipe.title}</h4>
                   </Link>
                   <p>{recipe.cookingTime}</p>
-                  <span>
+                  <p>
                     {recipe.tags.map((tag) => {
-                      return <>{tag.title} </>;
+                      return (<span key={tag.id}>{tag.title} </span>);
                     })}
-                  </span>
+                  </p>
                 </div>
               );
             })}

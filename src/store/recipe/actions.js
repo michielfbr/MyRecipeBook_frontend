@@ -13,28 +13,30 @@ export function recipesFetched(data) {
   };
 }
 
-export function fetchAllRecipes() {
+export function fetchAllRecipes(userId) {
   return async function thunk(dispatch, getState) {
     dispatch(appLoading());
-    const response = await axios.get(`${apiUrl}/recipe/all`);
+    const response = await axios.get(`${apiUrl}/recipe/all/${userId}`);
 
     const recipes = response.data;
-    console.log("AllRecipes:", recipes);
+    console.log("recipe/actions.js All recipes:", recipes);
 
     dispatch(recipesFetched({ recipes }));
     dispatch(appDoneLoading());
   };
 }
 
-// export function fetchSpecificArtwork(id) {
-//   return async function thunk(dispatch, getState) {
-//     dispatch(appLoading());
-//     const response = await axios.get(`${apiUrl}/artwork/${id}`);
+export function fetchSpecificRecipe(recipeId) {
+  return async function thunk(dispatch, getState) {
+    dispatch(appLoading());
+    console.log(recipeId);
+    const response = await axios.get(`${apiUrl}/recipe/${recipeId}`);
 
-//     const artworks = [response.data];
-//     // console.log("artworks/actions.js fetchSpecificArtwork:", artworks)
+    const recipe = [response.data];
+    console.log(response.data);
+    console.log("recipe/actions.js Specific recipe:", recipe);
 
-//     dispatch(artworksFetched({ artworks }));
-//     dispatch(appDoneLoading());
-//   };
-// }
+    dispatch(recipesFetched({ recipe }));
+    dispatch(appDoneLoading());
+  };
+}

@@ -1,3 +1,3 @@
-export const selectAllRecipes = reduxState => {
+export const selectRecipes = reduxState => {
     return reduxState.recipes.recipes;
   };

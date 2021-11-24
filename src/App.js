@@ -8,6 +8,7 @@ import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import RecipeDetails from "./pages/RecipeDetails";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -40,6 +41,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Routes>
         <Route exact path='/' element={<Home />} />
+        <Route path='/recipe/:recipeId' element={<RecipeDetails />}/>
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
       </Routes>
