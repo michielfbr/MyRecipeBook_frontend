@@ -26,17 +26,22 @@ export function fetchAllRecipes(userId) {
   };
 }
 
+export function recipeFetched(data) {
+  return {
+    type: "recipeFetched",
+    payload: data,
+  };
+}
+
 export function fetchSpecificRecipe(recipeId) {
   return async function thunk(dispatch, getState) {
     dispatch(appLoading());
-    console.log(recipeId);
     const response = await axios.get(`${apiUrl}/recipe/${recipeId}`);
 
-    const recipe = [response.data];
-    console.log(response.data);
+    const recipe = response.data;
     console.log("recipe/actions.js Specific recipe:", recipe);
 
-    dispatch(recipesFetched({ recipe }));
+    dispatch(recipeFetched({ recipe }));
     dispatch(appDoneLoading());
   };
 }

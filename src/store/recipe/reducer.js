@@ -1,5 +1,4 @@
 const initialState = {
-  
 };
 
 export default function Recipes(state = initialState, action) {
@@ -8,6 +7,12 @@ export default function Recipes(state = initialState, action) {
       return {
         ...state,
         recipes: action.payload.recipes,
+      };
+    }
+    case "recipeFetched": {
+      return {
+        ...state,
+        recipe: action.payload.recipe,
       };
     }
     default: {
