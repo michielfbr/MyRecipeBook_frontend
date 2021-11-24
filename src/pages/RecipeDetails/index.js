@@ -32,6 +32,8 @@ export default function RecipeDetails() {
           <div
             style={{
               maxWidth: "600px",
+              margin: "auto",
+              padding: "10px",
             }}
           >
             <p>
@@ -41,6 +43,7 @@ export default function RecipeDetails() {
             <h1>{recipe.title}</h1>
             <p>cookingtime: {recipe.cookingTime}</p>
             <p>
+              tags:{" "}
               {recipe.tags.map((tag) => {
                 return <span>{tag.title} </span>;
               })}
