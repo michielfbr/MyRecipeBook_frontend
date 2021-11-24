@@ -19,7 +19,7 @@ export function fetchAllRecipes() {
     const response = await axios.get(`${apiUrl}/recipe/all`);
 
     const recipes = response.data;
-    console.log("fetchAllRecipes:", recipes);
+    console.log("AllRecipes:", recipes);
 
     dispatch(recipesFetched({ recipes }));
     dispatch(appDoneLoading());
