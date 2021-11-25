@@ -71,7 +71,7 @@ export default function RecipeDetails() {
             <hr />
             <h3>Instructions</h3>
             <p>{recipe.instructions}</p>
-            <Link to={`/edit_recipe/${recipe.id}`}>
+            <Link to={`/edit_recipe`}>
                       <Button variant="primary">Edit recipe</Button>
                     </Link>
           </div>

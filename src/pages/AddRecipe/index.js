@@ -12,16 +12,11 @@ export default function AddRecipe() {
 
   function submitForm(event) {
     event.preventDefault();
-
-    //   dispatch(login(email, password));
-
-    //   setEmail("");
-    //   setPassword("");
+    console.log("Add recipe submitted");
   }
 
   return (
     <Container>
-      <h1 className="mt-5">page.AddRecipe</h1>
       <p>
         {"< "}
         <Link to={`/`}>back to overview</Link>
