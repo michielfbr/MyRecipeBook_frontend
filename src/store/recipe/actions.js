@@ -13,6 +13,7 @@ export function recipesFetched(data) {
   };
 }
 
+// Get all recipes belonging to user by :userId
 export function fetchAllRecipes(userId) {
   return async function thunk(dispatch, getState) {
     dispatch(appLoading());
@@ -33,6 +34,7 @@ export function recipeFetched(data) {
   };
 }
 
+// Get specific recipe by its :recipeId
 export function fetchSpecificRecipe(recipeId) {
   return async function thunk(dispatch, getState) {
     dispatch(appLoading());
@@ -45,3 +47,53 @@ export function fetchSpecificRecipe(recipeId) {
     dispatch(appDoneLoading());
   };
 }
+
+// Post a new recipe
+export const newRecipe = (
+  title,
+  imageUrl,
+  cookingTime,
+  ingredients,
+  tags,
+  instructions,
+  reference,
+  userId
+) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.post(
+        `${apiUrl}/recipe/new`,
+        {
+          title,
+          imageUrl,
+          cookingTime,
+          ingredients,
+          tags,
+          instructions,
+          reference,
+          userId,
+        }
+        // ,{
+        //   headers: { Authorization: `Bearer ${token}` },
+        // }
+      );
+      const newRecipe = response;
+      console.log("New Recipe:", newRecipe);
+      if (response.status === 201) {
+        dispatch(
+          showMessageWithTimeout(
+            "success",
+            false,
+            "Recipe added to YourRecipeBook"
+          )
+        );
+      }
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+};

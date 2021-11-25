@@ -21,7 +21,7 @@ export default function EditRecipe() {
     return <></>;
   } else {
     return (
-      <Container>
+      <Container >
         <p>
           {"< "}
           <Link to={`/recipe/${recipe.id}`}>back to recipe</Link>
