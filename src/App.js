@@ -9,6 +9,7 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import RecipeDetails from "./pages/RecipeDetails";
 import AddRecipe from "./pages/AddRecipe";
+import EditRecipe from "./pages/EditRecipe";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -38,6 +39,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route path='/recipe/:recipeId' element={<RecipeDetails />}/>
+        <Route path='/edit_recipe/:recipeId' element={<EditRecipe />}/>
         <Route path='/add_recipe' element={<AddRecipe />} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>

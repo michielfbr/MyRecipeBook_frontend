@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Jumbotron } from "react-bootstrap";
+import { Jumbotron, Container } from "react-bootstrap";
 import { fetchAllRecipes } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";
 import { selectUser } from "../../store/user/selectors";
@@ -17,7 +17,7 @@ export default function RecipeBrowser() {
   }, [dispatch, userId]);
 
   return (
-    <Jumbotron>
+    <Container>
       <h1>Recipe Browser</h1>
       <div>
         {!recipes ? (
@@ -60,6 +60,6 @@ export default function RecipeBrowser() {
           </div>
         )}
       </div>
-    </Jumbotron>
+    </Container>
   );
 }

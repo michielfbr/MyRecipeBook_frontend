@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Jumbotron } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import { fetchSpecificRecipe } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";
 import { selectRecipe } from "../../store/recipe/selectors";
+import Button from "react-bootstrap/Button";
 
 export default function RecipeDetails() {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ export default function RecipeDetails() {
               <Link to={`/`}>back to overview</Link>
             </p>
             <h1>{recipe.title}</h1>
-            <p>cookingtime: {recipe.cookingTime}</p>
+            <p>cooking time: {recipe.cookingTime}</p>
             <p>
               tags:{" "}
               {recipe.tags.map((tag) => {
@@ -71,6 +71,9 @@ export default function RecipeDetails() {
             <hr />
             <h3>Instructions</h3>
             <p>{recipe.instructions}</p>
+            <Link to={`/edit_recipe/${recipe.id}`}>
+                      <Button variant="primary">Edit recipe</Button>
+                    </Link>
           </div>
         </div>
       )}
