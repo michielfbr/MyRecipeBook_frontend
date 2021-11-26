@@ -50,28 +50,22 @@ export function fetchSpecificRecipe(recipeId) {
 
 // Post a new recipe
 export const newRecipe = (
-  title,
-  imageUrl,
-  cookingTime,
-  ingredients,
-  tags,
-  instructions,
-  reference,
-  userId
+  recipe
 ) => {
   return async (dispatch, getState) => {
     try {
+      console.log("userId", recipe.userId)
       const response = await axios.post(
         `${apiUrl}/recipe/new`,
         {
-          title,
-          imageUrl,
-          cookingTime,
-          ingredients,
-          tags,
-          instructions,
-          reference,
-          userId,
+          title: recipe.title,
+          imageUrl: recipe.imageUrl,
+          cookingTime: recipe.cookingTime,
+          ingredients: recipe.ingredients,
+          // tags,
+          instructions: recipe.instructions,
+          reference: recipe.reference,
+          userId: recipe.userId,
         }
         // ,{
         //   headers: { Authorization: `Bearer ${token}` },

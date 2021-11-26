@@ -18,21 +18,19 @@ export default function RecipeForm({
   const [title, setTitle] = useState(recipe.title);
   const [imageUrl, setImageUrl] = useState(recipe.imageUrl);
   const [cookingTime, setCookingTime] = useState(recipe.cookingTime);
-  const [ingredients, setIngredients] = useState([
-    { title: "test1", amount: 1, unit_singular: "l" },
-    { title: "test2" },
-  ]);
+  const [ingredients, setIngredients] = useState(recipe.ingredients);
   const [tags, setTags] = useState(recipe.tags);
   const [instructions, setInstructions] = useState(recipe.instructions);
   const [reference, setReference] = useState(recipe.reference);
 
   const user = useSelector(selectUser);
   const userId = user.id;
+  // const userId = 1;
 
   function submitForm(event) {
     event.preventDefault();
-    console.log("Add recipe submitted");
-    setRecipe(
+    console.log("Add recipe submitted in form");
+    setRecipe({
       title,
       imageUrl,
       cookingTime,
@@ -40,38 +38,29 @@ export default function RecipeForm({
       tags,
       instructions,
       reference,
-      userId
-    );
+      userId,
+    });
+    console.log(recipe)
     submitRecipe();
   }
-
-  // const [ingredientTitle, setIngredientTitle] = useState("");
 
   function changeIngredientTitle(value, index) {
     const newIngredients = [...ingredients];
     newIngredients[index].title = value;
-    // console.log(newIngredients[index]);
     setIngredients(newIngredients);
-    // console.log(ingredients[index]);
-    // console.log(ingredients);
   }
 
-  function changeIngredientAmount(value, index) {
+  function changeIngredientQuantity(value, index) {
     const newIngredients = [...ingredients];
-    newIngredients[index].amount = value;
-    // console.log(newIngredients[index]);
+    newIngredients[index].quantity = value;
     setIngredients(newIngredients);
-    // console.log(ingredients[index]);
-    // console.log(ingredients);
   }
 
   function changeIngredientUnitSingular(value, index) {
     const newIngredients = [...ingredients];
     newIngredients[index].unit_singular = value;
-    // console.log(newIngredients[index]);
+    newIngredients[index].unit_plural = "l";
     setIngredients(newIngredients);
-    // console.log(ingredients[index]);
-    // console.log(ingredients);
   }
 
   function addIngredient() {
@@ -80,9 +69,10 @@ export default function RecipeForm({
   }
 
   function removeIngredient(index) {
-    console.log("delete");
-    const deletedIngredient = ingredients.splice(index, 1);
+    const newIngredients = [...ingredients];
+    const deletedIngredient = newIngredients.splice(index, 1);
     console.log(deletedIngredient);
+    setIngredients(newIngredients);
   }
 
   return (
@@ -122,7 +112,7 @@ export default function RecipeForm({
       </Form.Group>
       <hr />
       <div>
-        {ingredients.map((ing, index) => {
+        {ingredients.map((ingr, index) => {
           return (
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Row>
@@ -130,7 +120,7 @@ export default function RecipeForm({
                   <Form.Label>Ingredient {index}</Form.Label>{" "}
                   {/* Delete {index} in production! */}
                   <Form.Control
-                    value={ing.title}
+                    value={ingr.title}
                     onChange={(event) =>
                       changeIngredientTitle(event.target.value, index)
                     }
@@ -142,9 +132,9 @@ export default function RecipeForm({
                 <Col>
                   <Form.Label>Amount</Form.Label>
                   <Form.Control
-                    value={ing.amount}
+                    value={ingr.quantity}
                     onChange={(event) =>
-                      changeIngredientAmount(event.target.value, index)
+                      changeIngredientQuantity(event.target.value, index)
                     }
                     type="number"
                     required
@@ -153,7 +143,7 @@ export default function RecipeForm({
                 <Col>
                   <Form.Label>Unit</Form.Label>
                   <Form.Control
-                    value={ing.unit_singular}
+                    value={ingr.unit_singular}
                     onChange={(event) =>
                       changeIngredientUnitSingular(event.target.value, index)
                     }
