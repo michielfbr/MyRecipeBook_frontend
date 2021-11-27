@@ -26,9 +26,13 @@ export default function RecipeForm({
   const user = useSelector(selectUser);
   const userId = user.id;
 
+  useEffect(() => {
+    console.log(recipe.ingredients);
+  }, []);
+
   function submitForm(event) {
     event.preventDefault();
-    console.log("Add recipe submitted in form");
+    console.log("Save recipe submitted in form");
     setRecipe({
       title,
       imageUrl,
@@ -57,19 +61,18 @@ export default function RecipeForm({
 
   function changeIngredientQuantity(value, index) {
     const newIngredients = [...ingredients];
-    newIngredients[index].quantity = value;
+    newIngredients[index].recipe_ingredients.quantity = value;
     setIngredients(newIngredients);
   }
 
   function changeIngredientUnitSingular(value, index) {
     const newIngredients = [...ingredients];
-    newIngredients[index].unit_singular = value;
-    newIngredients[index].unit_plural = "l";
+    newIngredients[index].recipe_ingredients.unit_singular = value;
     setIngredients(newIngredients);
   }
 
   function addIngredient() {
-    const newIngredients = [...ingredients, {}];
+    const newIngredients = [...ingredients, { recipe_ingredients: {} }];
     setIngredients(newIngredients);
   }
 
@@ -146,8 +149,7 @@ export default function RecipeForm({
           return (
             <Form.Group controlId="exampleForm.ControlSelect1" key={index}>
               <Row>
-                <Col xs={5}>
-                  {/* <Form.Label>Ingredient {index}</Form.Label>{" "} */}
+                <Col xs={4}>
                   <Form.Control
                     value={ingr.title}
                     onChange={(event) =>
@@ -158,10 +160,9 @@ export default function RecipeForm({
                     required
                   />
                 </Col>
-                <Col>
-                  {/* <Form.Label>Amount</Form.Label> */}
+                <Col xs={3}>
                   <Form.Control
-                    value={ingr.quantity}
+                    value={ingr.recipe_ingredients.quantity}
                     onChange={(event) =>
                       changeIngredientQuantity(event.target.value, index)
                     }
@@ -169,10 +170,9 @@ export default function RecipeForm({
                     required
                   />
                 </Col>
-                <Col>
-                  {/* <Form.Label>Unit</Form.Label> */}
+                <Col xs={3}>
                   <Form.Control
-                    value={ingr.unit_singular}
+                    value={ingr.recipe_ingredients.unit_singular}
                     onChange={(event) =>
                       changeIngredientUnitSingular(event.target.value, index)
                     }
@@ -187,10 +187,10 @@ export default function RecipeForm({
                     <option>piece</option>
                     <option>pinch</option>
                     <option>spoon</option>
+                    <option>splash</option>
                   </Form.Control>
                 </Col>
-                <Col>
-                  {/* <Form.Label>Delete</Form.Label> */}
+                <Col xs={1}>
                   <Button
                     variant="secondary"
                     onClick={() => removeIngredient(index)}

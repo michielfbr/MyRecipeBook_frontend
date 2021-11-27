@@ -12,15 +12,17 @@ export default function AddRecipe() {
   //   { title: "test1", quantity: 1, unit_singular: "l"},
   //   { title: "test2" },
   // ], instructions: "Do a dance"});
-  const [recipe, setRecipe] = useState({ingredients:[{}], tags:[{},{},{}]});
+  const [recipe, setRecipe] = useState({
+    ingredients: [{recipe_ingredients:{}}],
+    tags: [{}, {}, {}],
+  });
   const dispatch = useDispatch();
-  
-  const submitRecipe = () => {
 
-    console.log("Add recipe submitted in page");
+  const submitRecipe = () => {
+    // console.log("Add recipe submitted in page");
     console.log("Recipe", recipe)
     dispatch(newRecipe(recipe));
-  }
+  };
 
   return (
     <Container>

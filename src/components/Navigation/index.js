@@ -32,9 +32,9 @@ export default function Navigation() {
   })();
 
   const HiUser = token ? (
-    <Navbar.Brand>
+    <Navbar.Text>
       {greeting} {user.firstName}!
-    </Navbar.Brand>
+    </Navbar.Text>
   ) : (
     <></>
   );

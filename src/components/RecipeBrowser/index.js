@@ -8,9 +8,9 @@ import { selectRecipes } from "../../store/recipe/selectors";
 
 export default function RecipeBrowser() {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
   const recipes = useSelector(selectRecipes);
-  const userId = user.id
+  const userId = user.id;
 
   useEffect(() => {
     dispatch(fetchAllRecipes(userId));
@@ -51,7 +51,7 @@ export default function RecipeBrowser() {
                   <p>{recipe.cookingTime}</p>
                   <p>
                     {recipe.tags.map((tag) => {
-                      return (<span key={tag.id}>{tag.title} </span>);
+                      return <span key={tag.id}>{tag.title} </span>;
                     })}
                   </p>
                 </div>
