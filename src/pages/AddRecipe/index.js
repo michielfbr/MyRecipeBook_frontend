@@ -13,6 +13,7 @@ export default function AddRecipe() {
   //   { title: "test2" },
   // ], instructions: "Do a dance"});
   const [recipe, setRecipe] = useState({
+    cookingTime: "00:00",
     ingredients: [{recipe_ingredients:{}}],
     tags: [{}, {}, {}],
   });

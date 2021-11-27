@@ -110,12 +110,16 @@ export default function RecipeForm({
 
       <Form.Group>
         <Form.Label>Cooking Time</Form.Label>
-        <Form.Control
-          value={cookingTime}
-          onChange={(event) => setCookingTime(event.target.value)}
-          type="time"
-          required
-        />
+        <Row>
+          <Col xs={4}>
+            <Form.Control
+              value={cookingTime}
+              onChange={(event) => setCookingTime(event.target.value)}
+              type="time"
+              required
+            />
+          </Col>
+        </Row>
       </Form.Group>
       <hr />
 
@@ -156,7 +160,7 @@ export default function RecipeForm({
                       changeIngredientTitle(event.target.value, index)
                     }
                     type="string"
-                    placeholder="Ingredient"
+                    placeholder="ingredient"
                     required
                   />
                 </Col>
@@ -167,6 +171,7 @@ export default function RecipeForm({
                       changeIngredientQuantity(event.target.value, index)
                     }
                     type="number"
+                    placeholder="amount"
                     required
                   />
                 </Col>
@@ -178,7 +183,7 @@ export default function RecipeForm({
                     }
                     as="select"
                   >
-                    <option></option>
+                    <option disabled selected>unit</option>
                     <option>g</option>
                     <option>kg</option>
                     <option>l</option>
