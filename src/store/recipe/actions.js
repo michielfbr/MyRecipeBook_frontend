@@ -62,7 +62,7 @@ export const newRecipe = (
           imageUrl: recipe.imageUrl,
           cookingTime: recipe.cookingTime,
           ingredients: recipe.ingredients,
-          // tags,
+          tags: recipe.tags,
           instructions: recipe.instructions,
           reference: recipe.reference,
           userId: recipe.userId,

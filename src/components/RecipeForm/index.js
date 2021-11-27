@@ -25,7 +25,6 @@ export default function RecipeForm({
 
   const user = useSelector(selectUser);
   const userId = user.id;
-  // const userId = 1;
 
   function submitForm(event) {
     event.preventDefault();
@@ -40,8 +39,14 @@ export default function RecipeForm({
       reference,
       userId,
     });
-    console.log(recipe)
+    console.log(recipe);
     submitRecipe();
+  }
+
+  function changeTagTitle(value, index) {
+    const newTags = [...tags];
+    newTags[index].title = value;
+    setTags(newTags);
   }
 
   function changeIngredientTitle(value, index) {
@@ -71,7 +76,6 @@ export default function RecipeForm({
   function removeIngredient(index) {
     const newIngredients = [...ingredients];
     const deletedIngredient = newIngredients.splice(index, 1);
-    console.log(deletedIngredient);
     setIngredients(newIngredients);
   }
 
@@ -111,14 +115,39 @@ export default function RecipeForm({
         />
       </Form.Group>
       <hr />
+
       <div>
+        <Form.Label>Tags</Form.Label>
+        <Form.Group controlId="exampleForm.ControlSelect1">
+          <Row>
+            {tags.map((tag, index) => {
+              return (
+                <Col key={index}>
+                  <Form.Control
+                    value={tag.title}
+                    onChange={(event) =>
+                      changeTagTitle(event.target.value, index)
+                    }
+                    type="string"
+                    placeholder="Tag"
+                    required
+                  />
+                </Col>
+              );
+            })}
+          </Row>
+        </Form.Group>
+      </div>
+      <hr />
+
+      <div>
+        <Form.Label>Ingredients</Form.Label>
         {ingredients.map((ingr, index) => {
           return (
-            <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Group controlId="exampleForm.ControlSelect1" key={index}>
               <Row>
                 <Col xs={5}>
-                  <Form.Label>Ingredient {index}</Form.Label>{" "}
-                  {/* Delete {index} in production! */}
+                  {/* <Form.Label>Ingredient {index}</Form.Label>{" "} */}
                   <Form.Control
                     value={ingr.title}
                     onChange={(event) =>
@@ -130,7 +159,7 @@ export default function RecipeForm({
                   />
                 </Col>
                 <Col>
-                  <Form.Label>Amount</Form.Label>
+                  {/* <Form.Label>Amount</Form.Label> */}
                   <Form.Control
                     value={ingr.quantity}
                     onChange={(event) =>
@@ -141,7 +170,7 @@ export default function RecipeForm({
                   />
                 </Col>
                 <Col>
-                  <Form.Label>Unit</Form.Label>
+                  {/* <Form.Label>Unit</Form.Label> */}
                   <Form.Control
                     value={ingr.unit_singular}
                     onChange={(event) =>
@@ -149,15 +178,19 @@ export default function RecipeForm({
                     }
                     as="select"
                   >
+                    <option></option>
                     <option>g</option>
                     <option>kg</option>
                     <option>l</option>
                     <option>ml</option>
                     <option>teaspoon</option>
+                    <option>piece</option>
+                    <option>pinch</option>
+                    <option>spoon</option>
                   </Form.Control>
                 </Col>
                 <Col>
-                  <Form.Label>Delete</Form.Label>
+                  {/* <Form.Label>Delete</Form.Label> */}
                   <Button
                     variant="secondary"
                     onClick={() => removeIngredient(index)}
@@ -195,7 +228,7 @@ export default function RecipeForm({
           value={reference}
           onChange={(event) => setReference(event.target.value)}
           type="text"
-          placeholder="Recipe title"
+          placeholder="Website, recipe book, mom, etc"
           required
         />
       </Form.Group>
