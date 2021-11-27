@@ -12,8 +12,29 @@ export default function Navigation() {
   const token = useSelector(selectToken);
   const user = useSelector(selectUser);
 
+  const today = new Date();
+  const currentTime = today.getHours();
+
+  const greeting = (() => {
+    if (currentTime < 6) {
+      return `Good night`;
+    } else if (currentTime < 12) {
+      return `Good morning`;
+    } else if (currentTime < 18) {
+      return `Good afternoon`;
+    } else if (currentTime < 18) {
+      return `Good evening`;
+    } else if (currentTime < 24) {
+      return `Good night`;
+    } else {
+      return `Hi`;
+    }
+  })();
+
   const HiUser = token ? (
-    <Navbar.Brand>Hi {user.firstName}</Navbar.Brand>
+    <Navbar.Brand>
+      {greeting} {user.firstName}!
+    </Navbar.Brand>
   ) : (
     <></>
   );
