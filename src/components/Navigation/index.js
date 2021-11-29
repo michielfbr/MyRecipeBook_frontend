@@ -22,10 +22,8 @@ export default function Navigation() {
       return `Good morning`;
     } else if (currentTime < 18) {
       return `Good afternoon`;
-    } else if (currentTime < 18) {
-      return `Good evening`;
     } else if (currentTime < 24) {
-      return `Good night`;
+      return `Good evening`;
     } else {
       return `Hi`;
     }
