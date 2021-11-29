@@ -14,23 +14,23 @@ export default function AddRecipe() {
     title: "",
     imageUrl: "",
     cookingTime: "00:00",
-    ingredients: [{recipe_ingredients:{}}],
+    ingredients: [{ recipe_ingredients: {} }],
     tags: [{}, {}, {}],
     instructions: "",
     reference: "",
-    userId: user.id
+    userId: user.id,
   });
   const dispatch = useDispatch();
+
+  const onChangeHandler = (event) => {
+    setRecipe({ ...recipe, [event.target.name]: event.target.value });
+  };
 
   const submitRecipe = () => {
     console.log("Add recipe submitted in page");
     console.log("Recipe to submit:", recipe);
     dispatch(newRecipe(recipe));
   };
-
-  const onChangeHandler = (event) => {
-setRecipe({...recipe, [event.target.name]: event.target.value})
-  }
 
   return (
     <Container>

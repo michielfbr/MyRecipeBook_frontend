@@ -5,15 +5,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectRecipe } from "../../store/recipe/selectors";
 import { Link, useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import { updateRecipe } from "../../store/recipe/actions";
 
 export default function EditRecipe() {
   const pageTitle = "Edit recipe";
   const [recipe, setRecipe] = useState(useSelector(selectRecipe));
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  function submitForm(event) {
+  const onChangeHandler = (event) => {
+    setRecipe({ ...recipe, [event.target.name]: event.target.value });
+  };
+
+  function submitRecipe(event) {
     console.log("Edit recipe submitted in page");
-    event.preventDefault();
+    console.log("Recipe to submit:", recipe);
+    dispatch(updateRecipe(recipe));
   }
 
   if (!recipe) {
@@ -29,8 +36,8 @@ export default function EditRecipe() {
         <RecipeForm
           pageTitle={pageTitle}
           recipe={recipe}
-          setRecipe={setRecipe}
-          submitForm={submitForm}
+          onChangeHandler={onChangeHandler}
+          submitRecipe={submitRecipe}
         />
       </Container>
     );

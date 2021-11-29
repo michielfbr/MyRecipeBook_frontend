@@ -49,12 +49,10 @@ export function fetchSpecificRecipe(recipeId) {
 }
 
 // Post a new recipe
-export const newRecipe = (
-  recipe
-) => {
+export const newRecipe = (recipe) => {
   return async (dispatch, getState) => {
     try {
-      console.log("userId", recipe.userId)
+      console.log("userId", recipe.userId);
       const response = await axios.post(
         `${apiUrl}/recipe/new`,
         {
@@ -79,6 +77,48 @@ export const newRecipe = (
             "success",
             false,
             "Recipe added to YourRecipeBook"
+          )
+        );
+      }
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+};
+
+// Update a recipe
+export const updateRecipe = (recipe) => {
+  return async (dispatch, getState) => {
+    try {
+      console.log("userId", recipe.userId);
+      const response = await axios.put(
+        `${apiUrl}/recipe/${recipe.id}`,
+        {
+          title: recipe.title,
+          imageUrl: recipe.imageUrl,
+          cookingTime: recipe.cookingTime,
+          ingredients: recipe.ingredients,
+          tags: recipe.tags,
+          instructions: recipe.instructions,
+          reference: recipe.reference,
+          userId: recipe.userId,
+        }
+        // ,{
+        //   headers: { Authorization: `Bearer ${token}` },
+        // }
+      );
+      const newRecipe = response;
+      console.log("New Recipe:", newRecipe);
+      if (response.status === 201) {
+        dispatch(
+          showMessageWithTimeout(
+            "success",
+            false,
+            "Recipe updated in YourRecipeBook"
           )
         );
       }
