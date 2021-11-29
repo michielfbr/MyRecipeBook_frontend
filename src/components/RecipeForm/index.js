@@ -23,12 +23,10 @@ export default function RecipeForm({
 
   function changeTagTitle(value, index) {
     const newTags = [...tags];
-    newTags[index].title = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase;
+    newTags[index].title = value;
     setTags(newTags);
     onChangeHandler({ target: { name: "tags", value: newTags } });
   }
-
-  // string.charAt(0).toUpperCase() + string.slice(1)
 
   function changeIngredientTitle(value, index) {
     const newIngredients = [...ingredients];
