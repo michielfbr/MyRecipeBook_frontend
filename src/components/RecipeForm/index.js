@@ -1,49 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { login } from "../../store/user/actions";
-import { selectToken } from "../../store/user/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
-import { selectUser } from "../../store/user/selectors";
+import RecipeFormIngredients from "../RecipeFormIngredients";
+import RecipeFormTags from "../RecipeFormTags";
 
 export default function RecipeForm({
   pageTitle,
   recipe,
-  setRecipe,
+  onChangeHandler,
   submitRecipe,
 }) {
-  const [title, setTitle] = useState(recipe.title);
-  const [imageUrl, setImageUrl] = useState(recipe.imageUrl);
-  const [cookingTime, setCookingTime] = useState(recipe.cookingTime);
+  const { title, imageUrl, cookingTime, instructions, reference } = recipe;
   const [ingredients, setIngredients] = useState(recipe.ingredients);
   const [tags, setTags] = useState(recipe.tags);
-  const [instructions, setInstructions] = useState(recipe.instructions);
-  const [reference, setReference] = useState(recipe.reference);
-
-  const user = useSelector(selectUser);
-  const userId = user.id;
-
-  useEffect(() => {
-    console.log(recipe.ingredients);
-  }, []);
 
   function submitForm(event) {
     event.preventDefault();
     console.log("Save recipe submitted in form");
-    setRecipe({
-      title,
-      imageUrl,
-      cookingTime,
-      ingredients,
-      tags,
-      instructions,
-      reference,
-      userId,
-    });
-    console.log(recipe);
     submitRecipe();
   }
 
@@ -51,24 +25,28 @@ export default function RecipeForm({
     const newTags = [...tags];
     newTags[index].title = value;
     setTags(newTags);
+    onChangeHandler({ target: { name: "tags", value: newTags } });
   }
 
   function changeIngredientTitle(value, index) {
     const newIngredients = [...ingredients];
     newIngredients[index].title = value;
     setIngredients(newIngredients);
+    onChangeHandler({ target: { name: "ingredients", value: newIngredients } });
   }
 
   function changeIngredientQuantity(value, index) {
     const newIngredients = [...ingredients];
     newIngredients[index].recipe_ingredients.quantity = value;
     setIngredients(newIngredients);
+    onChangeHandler({ target: { name: "ingredients", value: newIngredients } });
   }
 
   function changeIngredientUnitSingular(value, index) {
     const newIngredients = [...ingredients];
     newIngredients[index].recipe_ingredients.unit_singular = value;
     setIngredients(newIngredients);
+    onChangeHandler({ target: { name: "ingredients", value: newIngredients } });
   }
 
   function addIngredient() {
@@ -90,8 +68,9 @@ export default function RecipeForm({
         <Form.Label>Recipe name</Form.Label>
         <Form.Control
           value={title}
-          onChange={(event) => setTitle(event.target.value)}
-          type="string"
+          name="title"
+          onChange={(event) => onChangeHandler(event)}
+          type="text"
           placeholder="Recipe title"
           required
         />
@@ -101,7 +80,8 @@ export default function RecipeForm({
         <Form.Label>Image url</Form.Label>
         <Form.Control
           value={imageUrl}
-          onChange={(event) => setImageUrl(event.target.value)}
+          name="imageUrl"
+          onChange={(event) => onChangeHandler(event)}
           type="url"
           placeholder="Image url"
           required
@@ -114,7 +94,8 @@ export default function RecipeForm({
           <Col xs={4}>
             <Form.Control
               value={cookingTime}
-              onChange={(event) => setCookingTime(event.target.value)}
+              name="cookingTime"
+              onChange={(event) => onChangeHandler(event)}
               type="time"
               required
             />
@@ -129,17 +110,11 @@ export default function RecipeForm({
           <Row>
             {tags.map((tag, index) => {
               return (
-                <Col key={index}>
-                  <Form.Control
-                    value={tag.title}
-                    onChange={(event) =>
-                      changeTagTitle(event.target.value, index)
-                    }
-                    type="string"
-                    placeholder="Tag"
-                    required
-                  />
-                </Col>
+                <RecipeFormTags
+                  tag={tag}
+                  index={index}
+                  changeTagTitle={changeTagTitle}
+                />
               );
             })}
           </Row>
@@ -151,76 +126,31 @@ export default function RecipeForm({
         <Form.Label>Ingredients</Form.Label>
         {ingredients.map((ingr, index) => {
           return (
-            <Form.Group controlId="exampleForm.ControlSelect1" key={index}>
-              <Row>
-                <Col xs={4}>
-                  <Form.Control
-                    value={ingr.title}
-                    onChange={(event) =>
-                      changeIngredientTitle(event.target.value, index)
-                    }
-                    type="string"
-                    placeholder="ingredient"
-                    required
-                  />
-                </Col>
-                <Col xs={3}>
-                  <Form.Control
-                    value={ingr.recipe_ingredients.quantity}
-                    onChange={(event) =>
-                      changeIngredientQuantity(event.target.value, index)
-                    }
-                    type="number"
-                    placeholder="amount"
-                    required
-                  />
-                </Col>
-                <Col xs={3}>
-                  <Form.Control
-                    value={ingr.recipe_ingredients.unit_singular}
-                    onChange={(event) =>
-                      changeIngredientUnitSingular(event.target.value, index)
-                    }
-                    as="select"
-                  >
-                    <option disabled selected>unit</option>
-                    <option>g</option>
-                    <option>kg</option>
-                    <option>l</option>
-                    <option>ml</option>
-                    <option>teaspoon</option>
-                    <option>piece</option>
-                    <option>pinch</option>
-                    <option>spoon</option>
-                    <option>splash</option>
-                  </Form.Control>
-                </Col>
-                <Col xs={1}>
-                  <Button
-                    variant="secondary"
-                    onClick={() => removeIngredient(index)}
-                  >
-                    x
-                  </Button>
-                </Col>
-              </Row>
-            </Form.Group>
+            <RecipeFormIngredients
+              ingr={ingr}
+              index={index}
+              removeIngredient={removeIngredient}
+              changeIngredientTitle={changeIngredientTitle}
+              changeIngredientQuantity={changeIngredientQuantity}
+              changeIngredientUnitSingular={changeIngredientUnitSingular}
+            />
           );
         })}
       </div>
 
-      {/* <Form.Label>Add ingredient</Form.Label> */}
       <Button variant="primary" type="submit" onClick={addIngredient}>
         +
       </Button>
       <hr />
+
       <Form.Group>
         <Form.Label>Instructions</Form.Label>
         <Form.Control
           as="textarea"
           rows={10}
           value={instructions}
-          onChange={(event) => setInstructions(event.target.value)}
+          name="instructions"
+          onChange={(event) => onChangeHandler(event)}
           type="text"
           placeholder="Instructions"
           required
@@ -231,7 +161,8 @@ export default function RecipeForm({
         <Form.Label>Reference</Form.Label>
         <Form.Control
           value={reference}
-          onChange={(event) => setReference(event.target.value)}
+          name="reference"
+          onChange={(event) => onChangeHandler(event)}
           type="text"
           placeholder="Website, recipe book, mom, etc"
           required

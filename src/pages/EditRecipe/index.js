@@ -12,8 +12,8 @@ export default function EditRecipe() {
   const navigate = useNavigate();
 
   function submitForm(event) {
+    console.log("Edit recipe submitted in page");
     event.preventDefault();
-    console.log("Edit recipe submitted");
   }
 
   if (!recipe) {
@@ -21,7 +21,7 @@ export default function EditRecipe() {
     return <></>;
   } else {
     return (
-      <Container >
+      <Container>
         <p>
           {"< "}
           <Link to={`/recipe/${recipe.id}`}>back to recipe</Link>
