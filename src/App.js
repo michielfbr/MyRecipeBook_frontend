@@ -18,9 +18,9 @@ import { Jumbotron } from "react-bootstrap";
 
 
 const Other = () => (
-  <Jumbotron>
+  <div>
     <h1>Other</h1>
-  </Jumbotron>
+  </div>
 );
 
 function App() {

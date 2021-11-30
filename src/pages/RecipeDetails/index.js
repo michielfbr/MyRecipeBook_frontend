@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Jumbotron } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { fetchSpecificRecipe } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";
 import { selectRecipe } from "../../store/recipe/selectors";
@@ -17,7 +17,7 @@ export default function RecipeDetails() {
   }, [dispatch, recipeId]);
 
   return (
-    <Jumbotron>
+    <Container>
       {!recipe ? (
         <></>
       ) : (
@@ -57,7 +57,8 @@ export default function RecipeDetails() {
                   return (
                     <tr>
                       <td>
-                        {ingredient.recipe_ingredients.quantity}{" "}{ingredient.recipe_ingredients.unit_singular}
+                        {ingredient.recipe_ingredients.quantity}{" "}
+                        {ingredient.recipe_ingredients.unit_singular}
                         {/* {ingredient.recipe_ingredients.quantity > 1
                           ? ingredient.recipe_ingredients.unit_plural
                           : ingredient.recipe_ingredients.unit_singular} */}
@@ -72,11 +73,11 @@ export default function RecipeDetails() {
             <h3>Instructions</h3>
             <p>{recipe.instructions}</p>
             <Link to={`/edit_recipe`}>
-                      <Button variant="primary">Edit recipe</Button>
-                    </Link>
+              <Button variant="primary">Edit recipe</Button>
+            </Link>
           </div>
         </div>
       )}
-    </Jumbotron>
+    </Container>
   );
 }
