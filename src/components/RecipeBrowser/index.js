@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Badge } from "react-bootstrap";
+import { Container, Badge, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { fetchAllRecipes } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";
 import { selectUser } from "../../store/user/selectors";
@@ -15,6 +15,12 @@ export default function RecipeBrowser() {
   useEffect(() => {
     dispatch(fetchAllRecipes(userId));
   }, [dispatch, userId]);
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Cooking time
+    </Tooltip>
+  );
 
   return (
     <Container>
@@ -48,12 +54,22 @@ export default function RecipeBrowser() {
                   <Link to={`/recipe/${recipe.id}`}>
                     <h4>{recipe.title}</h4>
                   </Link>
-                  <p>{recipe.cookingTime}</p>
-                  <p>
+                  <OverlayTrigger
+        placement="left"
+        delay={{ show: 50, hide: 300 }}
+        overlay={renderTooltip}
+      >
+                  <p>{recipe.cookingTime.substring(0, 5)}</p>
+                  </OverlayTrigger>
+                  <h5>
                     {recipe.tags.map((tag) => {
-                      return <Badge pill bg="success" key={tag.id}>{tag.title}</Badge>;
+                      return (
+                        <Badge pill bg="success" key={tag.id}>
+                          {tag.title}
+                        </Badge>
+                      );
                     })}
-                  </p>
+                  </h5>
                 </div>
               );
             })}

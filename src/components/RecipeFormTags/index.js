@@ -1,10 +1,15 @@
 import React from "react";
-import { Col, Form } from "react-bootstrap";
+import { Col, Form, FloatingLabel } from "react-bootstrap";
 
 export default function RecipeFormTags(props) {
   const { tag, index, changeTagTitle } = props;
   return (
     <Col key={index}>
+      <FloatingLabel
+          controlId="floatingInput"
+          label="Tag"
+          className="mb-3"
+        >
       <Form.Control
         value={tag.title}
         name="title"
@@ -12,7 +17,7 @@ export default function RecipeFormTags(props) {
         type="string"
         placeholder="Tag"
         required
-      />
+      /></FloatingLabel>
     </Col>
   );
 }

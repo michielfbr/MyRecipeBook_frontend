@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Col, Row } from "react-bootstrap";
+import {
+  Col,
+  Row,
+  FloatingLabel,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import RecipeFormIngredients from "../RecipeFormIngredients";
 import RecipeFormTags from "../RecipeFormTags";
 
@@ -60,52 +66,72 @@ export default function RecipeForm({
     setIngredients(newIngredients);
   }
 
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Add ingredient
+    </Tooltip>
+  );
+
   return (
     <Form as={Col} md={{ span: 10, offset: 1 }} className="mt-5">
       <h1 className="mt-5">{pageTitle}</h1>
 
       <Form.Group>
-        <Form.Label>Recipe name</Form.Label>
-        <Form.Control
-          value={title}
-          name="title"
-          onChange={(event) => onChangeHandler(event)}
-          type="text"
-          placeholder="Recipe title"
-          required
-        />
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Recipe name"
+          className="mb-3"
+        >
+          <Form.Control
+            value={title}
+            name="title"
+            onChange={(event) => onChangeHandler(event)}
+            type="text"
+            placeholder="Recipe title"
+            required
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <Form.Group>
-        <Form.Label>Image url</Form.Label>
-        <Form.Control
-          value={imageUrl}
-          name="imageUrl"
-          onChange={(event) => onChangeHandler(event)}
-          type="url"
-          placeholder="Image url"
-          required
-        />
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Image url"
+          className="mb-3"
+        >
+          <Form.Control
+            value={imageUrl}
+            name="imageUrl"
+            onChange={(event) => onChangeHandler(event)}
+            type="url"
+            placeholder="Image url"
+            required
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <Form.Group>
-        <Form.Label>Cooking Time</Form.Label>
         <Row>
           <Col xs={4}>
-            <Form.Control
-              value={cookingTime}
-              name="cookingTime"
-              onChange={(event) => onChangeHandler(event)}
-              type="time"
-              required
-            />
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Cooking time"
+              className="mb-3"
+            >
+              <Form.Control
+                value={cookingTime}
+                name="cookingTime"
+                onChange={(event) => onChangeHandler(event)}
+                type="time"
+                required
+              />
+            </FloatingLabel>
           </Col>
         </Row>
       </Form.Group>
       <hr />
 
       <div>
-        <Form.Label>Tags</Form.Label>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Row>
             {tags.map((tag, index) => {
@@ -138,35 +164,51 @@ export default function RecipeForm({
         })}
       </div>
 
-      <Button variant="primary" type="submit" onClick={addIngredient}>
-        +
-      </Button>
+      <OverlayTrigger
+        placement="right"
+        delay={{ show: 50, hide: 300 }}
+        overlay={renderTooltip}
+      >
+        <Button variant="primary" type="submit" onClick={addIngredient}>
+          +
+        </Button>
+      </OverlayTrigger>
       <hr />
 
       <Form.Group>
-        <Form.Label>Instructions</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={10}
-          value={instructions}
-          name="instructions"
-          onChange={(event) => onChangeHandler(event)}
-          type="text"
-          placeholder="Instructions"
-          required
-        />
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Instructions"
+          className="mb-3"
+        >
+          <Form.Control
+            as="textarea"
+            style={{ height: "300px" }}
+            value={instructions}
+            name="instructions"
+            onChange={(event) => onChangeHandler(event)}
+            type="text"
+            placeholder="Instructions"
+            required
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <Form.Group>
-        <Form.Label>Reference</Form.Label>
-        <Form.Control
-          value={reference}
-          name="reference"
-          onChange={(event) => onChangeHandler(event)}
-          type="text"
-          placeholder="Website, recipe book, mom, etc"
-          required
-        />
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Reference"
+          className="mb-3"
+        >
+          <Form.Control
+            value={reference}
+            name="reference"
+            onChange={(event) => onChangeHandler(event)}
+            type="text"
+            placeholder="Website, recipe book, mom, etc"
+            required
+          />
+        </FloatingLabel>
       </Form.Group>
 
       {/* <Form.Group className="mb-3" id="formGridCheckbox">

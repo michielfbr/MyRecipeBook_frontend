@@ -39,6 +39,7 @@ export default function RecipeFormIngredients(props) {
             required
             options={ingredientOptions}
             emptyLabel="new ingredient"
+            className="mb-1"
           />
           {/* <Form.Control
             value={ingr.title}
