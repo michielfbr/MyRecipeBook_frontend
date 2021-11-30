@@ -61,7 +61,7 @@ export default function RecipeForm({
   }
 
   return (
-    <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
+    <Form as={Col} md={{ span: 10, offset: 1 }} className="mt-5">
       <h1 className="mt-5">{pageTitle}</h1>
 
       <Form.Group>

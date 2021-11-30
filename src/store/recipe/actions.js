@@ -4,6 +4,7 @@ import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
+  setMessage,
 } from "../appState/actions";
 
 export function recipesFetched(data) {
@@ -131,3 +132,21 @@ export const updateRecipe = (recipe) => {
     }
   };
 };
+
+// Delete specific recipe by its :recipeId
+export function deleteSpecificRecipe(recipeId) {
+  return async function thunk(dispatch, getState) {
+    try {
+      dispatch(appLoading());
+    // const response = await axios.delete(`${apiUrl}/recipe/${recipeId}`);
+
+    dispatch(setMessage("danger", true, "Recipe deleted."));
+    dispatch(appDoneLoading());
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response.data.message);
+    } else {
+      console.log(error.message);
+    }
+  };
+}}
