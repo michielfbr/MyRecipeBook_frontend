@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Jumbotron, Container } from "react-bootstrap";
+import { Container, Badge } from "react-bootstrap";
 import { fetchAllRecipes } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";
 import { selectUser } from "../../store/user/selectors";
@@ -51,7 +51,7 @@ export default function RecipeBrowser() {
                   <p>{recipe.cookingTime}</p>
                   <p>
                     {recipe.tags.map((tag) => {
-                      return <span key={tag.id}>{tag.title} </span>;
+                      return <Badge pill bg="success" key={tag.id}>{tag.title}</Badge>;
                     })}
                   </p>
                 </div>

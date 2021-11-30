@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, Badge } from "react-bootstrap";
 import { fetchSpecificRecipe } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";
 import { selectRecipe } from "../../store/recipe/selectors";
@@ -44,9 +44,11 @@ export default function RecipeDetails() {
             <p>cooking time: {recipe.cookingTime}</p>
             <p>
               tags:{" "}
+              <h4>
               {recipe.tags.map((tag) => {
-                return <span>{tag.title} </span>;
+                return <Badge pill bg="success" key={tag.id}>{tag.title} </Badge>;
               })}
+              </h4>
             </p>
             <hr />
             <h3>Ingredients</h3>
