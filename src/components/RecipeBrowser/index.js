@@ -55,17 +55,19 @@ export default function RecipeBrowser() {
                     <h4>{recipe.title}</h4>
                   </Link>
                   <OverlayTrigger
-        placement="left"
-        delay={{ show: 50, hide: 300 }}
-        overlay={renderTooltip}
-      >
-                  <p>{recipe.cookingTime.substring(0, 5)}</p>
+                    placement="left"
+                    delay={{ show: 50, hide: 300 }}
+                    overlay={renderTooltip}
+                  >
+                    <p>{recipe.cookingTime.substring(0, 5)}</p>
                   </OverlayTrigger>
                   <h5>
                     {recipe.tags.map((tag) => {
                       return (
-                        <Badge pill bg="success" key={tag.id}>
-                          {tag.title}
+                        <Badge pill bg="success" key={tag.id} style={{ marginRight: "5px" }}>
+                          <text style={{ textTransform: "capitalize" }}>
+                            {tag.title}
+                          </text>
                         </Badge>
                       );
                     })}

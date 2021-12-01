@@ -29,7 +29,7 @@ export default function RecipeForm({
 
   function changeTagTitle(value, index) {
     const newTags = [...tags];
-    newTags[index].title = value;
+    newTags[index].title = value.toLowerCase();
     setTags(newTags);
     onChangeHandler({ target: { name: "tags", value: newTags } });
   }
@@ -134,6 +134,7 @@ export default function RecipeForm({
       <div>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Row>
+            <Form.Label>Tags</Form.Label>
             {tags.map((tag, index) => {
               return (
                 <RecipeFormTags

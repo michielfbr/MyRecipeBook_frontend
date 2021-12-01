@@ -14,22 +14,19 @@ export default function RecipeDeletePopup(props) {
         centered
       >
         {/* <Modal.Header closeButton> */}
-          {/* <Modal.Title id="contained-modal-title-vcenter">
+        {/* <Modal.Title id="contained-modal-title-vcenter">
             Are you sure?
           </Modal.Title> */}
         {/* </Modal.Header> */}
         <Modal.Body closeButton>
           <h4>Are you sure?</h4>
-          <p>
-            Recipe will permanently be deleted from your RecipeBook.
-          </p>
-          
+          <p>Recipe will permanently be deleted from your RecipeBook.</p>
         </Modal.Body>
         <Modal.Footer>
-        <Button variant="danger" onClick={deleteRecipe}>
-                Delete recipe
-              </Button>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button variant="secondary" onClick={props.onHide}>Close</Button>
+          <Button variant="primary" onClick={deleteRecipe}>
+            Delete recipe
+          </Button>
         </Modal.Footer>
       </Modal>
     );

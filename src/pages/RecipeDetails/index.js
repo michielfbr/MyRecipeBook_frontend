@@ -16,8 +16,8 @@ export default function RecipeDetails() {
   const [deleteRecipePopupShow, setDeleteRecipePopupShow] = useState(false);
 
   function deleteRecipe() {
-    dispatch(deleteSpecificRecipe(recipe.id))
-    setDeleteRecipePopupShow(false)
+    dispatch(deleteSpecificRecipe(recipe.id));
+    setDeleteRecipePopupShow(false);
   }
 
   useEffect(() => {
@@ -68,8 +68,15 @@ export default function RecipeDetails() {
               <h4>
                 {recipe.tags.map((tag) => {
                   return (
-                    <Badge pill bg="success" key={tag.id}>
-                      {tag.title}{" "}
+                    <Badge
+                      pill
+                      bg="success"
+                      key={tag.id}
+                      style={{ marginRight: "5px" }}
+                    >
+                      <text style={{ textTransform: "capitalize" }}>
+                        {tag.title}
+                      </text>
                     </Badge>
                   );
                 })}
@@ -100,10 +107,16 @@ export default function RecipeDetails() {
               <h3>Instructions</h3>
               <p>{recipe.instructions}</p>
               <Link to={`/edit_recipe`}>
-                <Button variant="primary">Edit recipe</Button>
+                <Button variant="primary" style={{ marginRight: "8px" }}>
+                  Edit recipe
+                </Button>
               </Link>
-              
-              <Button variant="danger" onClick={() => setDeleteRecipePopupShow(true)}>
+
+              <Button
+                variant="secondary"
+                style={{ marginRight: "8px" }}
+                onClick={() => setDeleteRecipePopupShow(true)}
+              >
                 Delete recipe
               </Button>
             </div>

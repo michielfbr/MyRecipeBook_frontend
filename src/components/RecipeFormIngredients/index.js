@@ -41,16 +41,6 @@ export default function RecipeFormIngredients(props) {
             emptyLabel="new ingredient"
             className="mb-1"
           />
-          {/* <Form.Control
-            value={ingr.title}
-            name="title"
-            onChange={(event) =>
-              changeIngredientTitle(event.target.value, index)
-            }
-            type="string"
-            placeholder="ingredient"
-            required
-          /> */}
         </Col>
         <Col xs={3}>
           <Form.Control
