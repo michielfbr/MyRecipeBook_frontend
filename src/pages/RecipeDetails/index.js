@@ -62,28 +62,21 @@ export default function RecipeDetails() {
                 {"< "}
                 <Link to={`/`}>back to overview</Link>
               </p>
-              <h1>{recipe.title}</h1>
-              <h6>cooking time: {recipe.cookingTime.substring(0, 5)}</h6>
+              <h1 className="Header">{recipe.title}</h1>
+              <h6>Cooking time: {recipe.cookingTime.substring(0, 5)}</h6>
 
               <h4>
                 {recipe.tags.map((tag) => {
                   return (
-                    <Badge
-                      pill
-                      bg="success"
-                      key={tag.id}
-                      style={{ marginRight: "5px" }}
-                    >
-                      <text style={{ textTransform: "capitalize" }}>
-                        {tag.title}
-                      </text>
+                    <Badge pill className="Tagbadge" bg="succes" key={tag.id}>
+                      <text>{tag.title}</text>
                     </Badge>
                   );
                 })}
               </h4>
 
               <hr />
-              <h3>Ingredients</h3>
+              <h3 className="Header">Ingredients</h3>
 
               <table>
                 <tbody>
@@ -104,7 +97,7 @@ export default function RecipeDetails() {
                 </tbody>
               </table>
               <hr />
-              <h3>Instructions</h3>
+              <h3 className="Header">Instructions</h3>
               <p>{recipe.instructions}</p>
               <Link to={`/edit_recipe`}>
                 <Button variant="primary" style={{ marginRight: "8px" }}>

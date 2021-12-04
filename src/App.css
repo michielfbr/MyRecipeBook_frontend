@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto&display=swap");
+
+.App {
+  background-color: #f8f6ee;
+  font-family: "Roboto";
+  color: #262730;
+  min-height: 100vh;
+  /* font-size: "25px";
+    width: "90%"; */
+}
+
+.NavBar {
+  background-color: #184e3b;
+}
+
+.Header {
+  font-family: "Merriweather";
+}
+
+.LinkHeader {
+  font-family: "Merriweather";
+  color: #262730;
+  text-decoration: none;
+}
+
+.Tagbadge {
+  background-color: #f17300;
+  color: #ffffff;
+  margin-right: 8px;
+  text-transform: capitalize;
+}

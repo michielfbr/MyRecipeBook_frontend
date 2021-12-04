@@ -16,7 +16,6 @@ import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
 
-
 const Other = () => (
   <div>
     <h1>Other</h1>
@@ -32,16 +31,16 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className='App'>
+    <div className="App">
       <Navigation />
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route path='/recipe/:recipeId' element={<RecipeDetails />}/>
-        <Route path='/edit_recipe' element={<EditRecipe />}/>
-        <Route path='/add_recipe' element={<AddRecipe />} />
-        <Route path='/signup' element={<SignUp />} />
+        <Route exact path="/" element={<Home />} />
+        <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
+        <Route path="/edit_recipe" element={<EditRecipe />} />
+        <Route path="/add_recipe" element={<AddRecipe />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </div>
   );
