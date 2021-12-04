@@ -1,17 +1,6 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  Container,
-  Row,
-  Col,
-  Badge,
-  OverlayTrigger,
-  Tooltip,
-} from "react-bootstrap";
-import { fetchAllRecipes } from "../../store/recipe/actions";
+import React from "react";
+import { Row, Col, Badge, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { selectUser } from "../../store/user/selectors";
-import { selectRecipes } from "../../store/recipe/selectors";
 
 export default function RecipeBrowserCard(props) {
   const { recipe } = props;
@@ -23,25 +12,31 @@ export default function RecipeBrowserCard(props) {
   );
 
   return (
-    <Row>
-      <Col sm={{ span: 4, offset: 3 }}>
+    <Row className="RecipeCard">
+      <Col
+        sm={{ span: 5, offset: 1 }}
+        className="d-flex justify-content-sm-end"
+      >
         <Link to={`/recipe/${recipe.id}`}>
           <img
             src={recipe.imageUrl}
             alt={recipe.title}
             style={{
+              width: "192px",
               maxWidth: "100%",
+              height: "128px",
+              objectFit: "cover",
             }}
           ></img>
         </Link>
       </Col>
 
-      <Col sm={{ span: 4, offset: 0 }}>
+      <Col sm={{ span: 5, offset: 0 }} float="right">
         <Link to={`/recipe/${recipe.id}`}>
-          <h4 className='LinkHeader'>{recipe.title}</h4>
+          <h4 className="LinkHeader">{recipe.title}</h4>
         </Link>
         <OverlayTrigger
-          placement="right"
+          placement="left-end"
           delay={{ show: 50, hide: 300 }}
           overlay={renderTooltip}
         >
@@ -51,7 +46,7 @@ export default function RecipeBrowserCard(props) {
           {recipe.tags.map((tag) => {
             return (
               <Badge pill className="Tagbadge" bg="succes" key={tag.id}>
-                <text>{tag.title}</text>
+                {tag.title}
               </Badge>
             );
           })}

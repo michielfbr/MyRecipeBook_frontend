@@ -76,7 +76,7 @@ export default function RecipeFormIngredients(props) {
           </Form.Control>
         </Col>
         <Col xs={1}>
-          <Button variant="secondary" onClick={() => removeIngredient(index)}>
+          <Button variant="secondary" size="sm" onClick={() => removeIngredient(index)}>
             x
           </Button>
         </Col>

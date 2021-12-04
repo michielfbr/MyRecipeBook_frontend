@@ -5,27 +5,77 @@
   font-family: "Roboto";
   color: #262730;
   min-height: 100vh;
-  /* font-size: "25px";
-    width: "90%"; */
+  font-size: "16px";
 }
 
-.NavBar {
+.Navbar {
   background-color: #184e3b;
+  color: #f8f6ee;
+}
+
+.NavbarHeader {
+  font-family: "Merriweather";
+  color: #f8f6ee;
+  margin-left: 8px;
+}
+
+.AddRecipeButton {
+  background-color: #f8f6ee;
+  color: #f8f6ee;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+.LogOutButton {
+  background-color: #184e3b;
+  color: #f8f6ee;
+  margin-right: 8px;
+
+  /* fontWeight: "bolder", */
+  /* fontSize: "25px", */
+  /* boxShadow: " 4px 3px darkblue , 3px 3px", */
+  border-style: 1px solid #f8f6ee;
+  border-radius: 5px;
+  /* margin: "20px", */
+}
+
+.pagePadding {
+    padding-top: 10px;
+    padding-bottom: 40px;
 }
 
 .Header {
   font-family: "Merriweather";
 }
 
+.center {
+  text-align: center;
+}
+
+.RecipeCard {
+  margin-bottom: 40px;
+}
+
 .LinkHeader {
   font-family: "Merriweather";
   color: #262730;
-  text-decoration: none;
+  text-decoration: inherit;
+}
+
+.Link {
+  font-family: "Roboto";
+  color: #262730;
+}
+
+.FullRecipe {
+  max-width: 600px;
+  margin: auto;
+  /* padding: 10px; */
 }
 
 .Tagbadge {
   background-color: #f17300;
-  color: #ffffff;
+  color: #f8f6ee;
   margin-right: 8px;
   text-transform: capitalize;
 }

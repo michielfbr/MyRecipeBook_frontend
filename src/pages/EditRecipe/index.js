@@ -28,10 +28,10 @@ export default function EditRecipe() {
     return <></>;
   } else {
     return (
-      <Container>
+      <Container className="pagePadding">
         <p>
           {"< "}
-          <Link to={`/recipe/${recipe.id}`}>back to recipe</Link>
+          <Link to={`/recipe/${recipe.id}`} className="Link">back to recipe</Link>
         </p>
         <RecipeForm
           pageTitle={pageTitle}

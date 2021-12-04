@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Badge, Dropdown } from "react-bootstrap";
+import { Container, Badge, Dropdown, Image } from "react-bootstrap";
 import { fetchSpecificRecipe } from "../../store/recipe/actions";
 import { deleteSpecificRecipe } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";
@@ -30,92 +30,86 @@ export default function RecipeDetails() {
         <></>
       ) : (
         <div>
-          <img
+          <Image
             src={recipe.imageUrl}
             alt={recipe.title}
             style={{
               width: "100%",
+              height: "296px",
+              objectFit: "cover",
             }}
-          ></img>
+          ></Image>
         </div>
       )}
-      <Container>
-        {!recipe ? (
-          <></>
-        ) : (
-          <div>
-            {/* <img
-            src={recipe.imageUrl}
-            alt={recipe.title}
-            style={{
-              width: "100%",
-            }}
-          ></img> */}
-            <div
-              style={{
-                maxWidth: "600px",
-                margin: "auto",
-                padding: "10px",
-              }}
-            >
-              <p>
-                {"< "}
-                <Link to={`/`}>back to overview</Link>
-              </p>
-              <h1 className="Header">{recipe.title}</h1>
-              <h6>Cooking time: {recipe.cookingTime.substring(0, 5)}</h6>
 
-              <h4>
-                {recipe.tags.map((tag) => {
-                  return (
-                    <Badge pill className="Tagbadge" bg="succes" key={tag.id}>
-                      <text>{tag.title}</text>
-                    </Badge>
-                  );
-                })}
-              </h4>
+      {!recipe ? (
+        <></>
+      ) : (
+        <Container
+          className="FullRecipe pagePadding"
+          style={{
+            maxWidth: "600px",
+            margin: "auto",
+          }}
+        >
+          <p>
+            {"< "}
+            <Link to={`/`} className="Link">
+              back to overview
+            </Link>
+          </p>
+          <h1 className="Header">{recipe.title}</h1>
+          <h6>Cooking time: {recipe.cookingTime.substring(0, 5)}</h6>
 
-              <hr />
-              <h3 className="Header">Ingredients</h3>
+          <h4>
+            {recipe.tags.map((tag) => {
+              return (
+                <Badge pill className="Tagbadge" bg="succes" key={tag.id}>
+                  {tag.title}
+                </Badge>
+              );
+            })}
+          </h4>
 
-              <table>
-                <tbody>
-                  {recipe.ingredients.map((ingredient) => {
-                    return (
-                      <tr>
-                        <td>
-                          {ingredient.recipe_ingredients.quantity}{" "}
-                          {ingredient.recipe_ingredients.unit_singular}
-                          {/* {ingredient.recipe_ingredients.quantity > 1
+          <hr />
+          <h3 className="Header">Ingredients</h3>
+
+          <table>
+            <tbody>
+              {recipe.ingredients.map((ingredient) => {
+                return (
+                  <tr>
+                    <td style={{ paddingRight: "20px" }}>
+                      {ingredient.recipe_ingredients.quantity}{" "}
+                      {ingredient.recipe_ingredients.unit_singular}
+                      {/* {ingredient.recipe_ingredients.quantity > 1
                           ? ingredient.recipe_ingredients.unit_plural
                           : ingredient.recipe_ingredients.unit_singular} */}
-                        </td>
-                        <td>{ingredient.title}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-              <hr />
-              <h3 className="Header">Instructions</h3>
-              <p>{recipe.instructions}</p>
-              <Link to={`/edit_recipe`}>
-                <Button variant="primary" style={{ marginRight: "8px" }}>
-                  Edit recipe
-                </Button>
-              </Link>
+                    </td>
+                    <td>{ingredient.title}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          <hr />
+          <h3 className="Header">Instructions</h3>
+          <p>{recipe.instructions}</p>
+          <Link to={`/edit_recipe`}>
+            <Button variant="success" style={{ marginRight: "8px" }}>
+              Edit recipe
+            </Button>
+          </Link>
 
-              <Button
-                variant="secondary"
-                style={{ marginRight: "8px" }}
-                onClick={() => setDeleteRecipePopupShow(true)}
-              >
-                Delete recipe
-              </Button>
-            </div>
-          </div>
-        )}
-      </Container>
+          <Button
+            variant="outline-success"
+            style={{ marginRight: "8px" }}
+            onClick={() => setDeleteRecipePopupShow(true)}
+          >
+            Delete recipe
+          </Button>
+        </Container>
+      )}
       <RecipeDeletePopup
         deleteRecipePopupShow={deleteRecipePopupShow}
         setDeleteRecipePopupShow={() => setDeleteRecipePopupShow()}

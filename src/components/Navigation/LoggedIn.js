@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../store/user/actions";
 import Button from "react-bootstrap/Button";
 import { selectUser } from "../../store/user/selectors";
+import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import NavbarItem from "./NavbarItem";
 
@@ -11,10 +12,20 @@ export default function LoggedIn() {
   const user = useSelector(selectUser);
   return (
     <>
-      {/* <Nav.Item style={{ padding: ".5rem 1rem" }}>{user.email}</Nav.Item> */}
-      <NavbarItem path="/" linkText="Home" />
-      <NavbarItem path="/add_recipe" linkText="Add recipe" />
-      <Button onClick={() => dispatch(logOut())}>Logout</Button>
+      {/* <NavbarItem path="/" linkText="Home" /> */}
+      <Link to={`add_recipe`} className="AddRecipeButton">
+        <Button variant="outline-success" size="sm">
+          Add recipe
+        </Button>
+      </Link>
+      <Button
+        variant="success"
+        size="sm"
+        className="LogOutButton"
+        onClick={() => dispatch(logOut())}
+      >
+        Log out
+      </Button>
     </>
   );
 }

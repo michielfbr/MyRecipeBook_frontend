@@ -74,7 +74,7 @@ export default function RecipeForm({
 
   return (
     <Form as={Col} md={{ span: 10, offset: 1 }} className="mt-5">
-      <h1 className="mt-5">{pageTitle}</h1>
+      <h1 className="Header">{pageTitle}</h1>
 
       <Form.Group>
         <FloatingLabel
@@ -134,7 +134,7 @@ export default function RecipeForm({
       <div>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Row>
-            <Form.Label>Tags</Form.Label>
+            <Form.Label className="Header">Tags</Form.Label>
             {tags.map((tag, index) => {
               return (
                 <RecipeFormTags
@@ -150,7 +150,7 @@ export default function RecipeForm({
       <hr />
 
       <div>
-        <Form.Label>Ingredients</Form.Label>
+        <Form.Label className="Header">Ingredients</Form.Label>
         {ingredients.map((ingr, index) => {
           return (
             <RecipeFormIngredients
@@ -170,31 +170,37 @@ export default function RecipeForm({
         delay={{ show: 50, hide: 300 }}
         overlay={renderTooltip}
       >
-        <Button variant="primary" type="submit" onClick={addIngredient}>
+        <Button
+          variant="outline-success"
+          size="sm"
+          type="submit"
+          onClick={addIngredient}
+        >
           +
         </Button>
       </OverlayTrigger>
       <hr />
 
       <Form.Group>
-        <FloatingLabel
+        {/* <FloatingLabel
           controlId="floatingInput"
           label="Instructions"
           className="mb-3"
-        >
-          <Form.Control
-            as="textarea"
-            style={{ height: "300px" }}
-            value={instructions}
-            name="instructions"
-            onChange={(event) => onChangeHandler(event)}
-            type="text"
-            placeholder="Instructions"
-            required
-          />
-        </FloatingLabel>
+        > */}
+        <Form.Label className="Header">Instructions</Form.Label>
+        <Form.Control
+          as="textarea"
+          style={{ height: "300px" }}
+          value={instructions}
+          name="instructions"
+          onChange={(event) => onChangeHandler(event)}
+          type="text"
+          placeholder="Instructions"
+          required
+        />
+        {/* </FloatingLabel> */}
       </Form.Group>
-
+      <br />
       <Form.Group>
         <FloatingLabel
           controlId="floatingInput"
@@ -217,7 +223,7 @@ export default function RecipeForm({
   </Form.Group> */}
 
       <Form.Group className="mt-5">
-        <Button variant="primary" type="submit" onClick={submitForm}>
+        <Button variant="success" type="submit" onClick={submitForm}>
           Save recipe
         </Button>
       </Form.Group>

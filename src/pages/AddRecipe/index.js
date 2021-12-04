@@ -33,10 +33,10 @@ export default function AddRecipe() {
   };
 
   return (
-    <Container>
+    <Container className="pagePadding">
       <p>
         {"< "}
-        <Link to={`/`}>back to overview</Link>
+        <Link to={`/`} className="Link">back to overview</Link>
       </p>
       <RecipeForm
         pageTitle={pageTitle}

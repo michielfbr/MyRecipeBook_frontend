@@ -33,10 +33,10 @@ export default function Login() {
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <h1 className="mt-5">Welcome to MyRecipeBook</h1>
-        <h4 className="mb-5">A place to store and browse through the recipes you collect</h4>
+        <h2 className="Header">Welcome to MyRecipeBook</h2>
+        <h4>A place to store and browse through the recipes you collect</h4>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="Header">Email address</Form.Label>
           <Form.Control
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -47,7 +47,7 @@ export default function Login() {
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="Header">Password</Form.Label>
           <Form.Control
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -57,10 +57,10 @@ export default function Login() {
           />
         </Form.Group>
         <Form.Group className="mt-5">
-          <Button variant="primary" type="submit" onClick={submitForm}>
+          <Button variant="success" type="submit" onClick={submitForm}>
             Log in
-          </Button>
-          <Link to="/signup" style={{ textAlign: "center" }}>
+          </Button>{" "}
+          <Link className="Link" to="/signup">
             or sign up
           </Link>
         </Form.Group>

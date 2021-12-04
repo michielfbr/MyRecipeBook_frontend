@@ -5,7 +5,7 @@ export default function RecipeDeletePopup(props) {
   const { deleteRecipePopupShow, setDeleteRecipePopupShow, deleteRecipe } =
     props;
 
-  function MyVerticallyCenteredModal(props) {
+  function Popup(props) {
     return (
       <Modal
         {...props}
@@ -18,13 +18,15 @@ export default function RecipeDeletePopup(props) {
             Are you sure?
           </Modal.Title> */}
         {/* </Modal.Header> */}
-        <Modal.Body closeButton>
+        <Modal.Body>
           <h4>Are you sure?</h4>
-          <p>Recipe will permanently be deleted from your RecipeBook.</p>
+          <p>This recipe will permanently be deleted from your RecipeBook.</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.onHide}>Close</Button>
-          <Button variant="primary" onClick={deleteRecipe}>
+          <Button variant="success" onClick={props.onHide}>
+            Close
+          </Button>
+          <Button variant="outline-success" onClick={deleteRecipe}>
             Delete recipe
           </Button>
         </Modal.Footer>
@@ -34,11 +36,7 @@ export default function RecipeDeletePopup(props) {
 
   return (
     <>
-      {/* <Button variant="primary" onClick={() => setDeleteRecipePopupShow(true)}>
-        Launch vertically centered modal
-      </Button> */}
-
-      <MyVerticallyCenteredModal
+      <Popup
         show={deleteRecipePopupShow}
         onHide={() => setDeleteRecipePopupShow(false)}
       />

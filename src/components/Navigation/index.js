@@ -8,6 +8,7 @@ import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 
+
 export default function Navigation() {
   const token = useSelector(selectToken);
   const user = useSelector(selectUser);
@@ -31,7 +32,7 @@ export default function Navigation() {
 
   const HiUser = token ? (
     <Navbar.Text>
-      {greeting} {user.firstName}!
+      <label className="Navbar">{greeting} {user.firstName}!</label>
     </Navbar.Text>
   ) : (
     <></>
@@ -39,12 +40,9 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar 
-    className='NavBar'
-    // bg="light" 
-    expand="lg">
+    <Navbar className="Navbar" expand="sm">
       <Navbar.Brand as={NavLink} to="/">
-        MyRecipeBook
+        <label className="NavbarHeader">MyRecipeBook</label>
       </Navbar.Brand>
       {HiUser}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

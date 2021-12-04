@@ -32,18 +32,18 @@ export default function RecipeBrowser() {
 
   return (
     <Container>
+      {/* <Row>
+      <Col sm={{ span: 4, offset: 2 }}>
       <h1 className='Header'>MyRecipeBook</h1>
-      <div>
+      </Col>
+      </Row> */}
+      <div className="pagePadding" style={{paddingTop:"24px"}}>
         {!recipes ? (
           <></>
         ) : (
           <div>
             {recipes.map((recipe) => {
-              return (
-                <RecipeBrowserCard 
-                recipe={recipe}
-                />
-              );
+              return <RecipeBrowserCard key={recipe.id} recipe={recipe} />;
             })}
           </div>
         )}
