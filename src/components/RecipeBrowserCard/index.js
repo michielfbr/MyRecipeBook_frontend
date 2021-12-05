@@ -14,7 +14,7 @@ export default function RecipeBrowserCard(props) {
   return (
     <Row className="RecipeCard">
       <Col
-        sm={{ span: 5, offset: 1 }}
+        sm={{ span: 3, offset: 1 }}
         className="d-flex justify-content-sm-end"
       >
         <Link to={`/recipe/${recipe.id}`}>
@@ -31,7 +31,7 @@ export default function RecipeBrowserCard(props) {
         </Link>
       </Col>
 
-      <Col sm={{ span: 5, offset: 0 }} float="right">
+      <Col sm={{ span: 8, offset: 0 }} float="right" className="RecipeCardCol">
         <Link to={`/recipe/${recipe.id}`}>
           <h4 className="LinkHeader">{recipe.title}</h4>
         </Link>

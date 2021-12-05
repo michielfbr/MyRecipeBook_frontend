@@ -37,7 +37,7 @@ export default function RecipeBrowser() {
       <h1 className='Header'>MyRecipeBook</h1>
       </Col>
       </Row> */}
-      <div className="pagePadding" style={{paddingTop:"24px"}}>
+      <div className="pagePadding" style={{paddingTop:"40px"}}>
         {!recipes ? (
           <></>
         ) : (

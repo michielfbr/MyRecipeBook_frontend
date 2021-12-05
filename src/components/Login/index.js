@@ -6,7 +6,7 @@ import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
+import { Row, Col, FloatingLabel } from "react-bootstrap";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -35,27 +35,38 @@ export default function Login() {
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h2 className="Header">Welcome to MyRecipeBook</h2>
         <h4>A place to store and browse through the recipes you collect</h4>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label className="Header">Email address</Form.Label>
-          <Form.Control
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            type="email"
-            placeholder="Enter email"
-            required
-          />
+        <Form.Group className="mt-5" controlId="formBasicEmail">
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Email adress"
+            className="mb-3"
+          >
+            <Form.Control
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              type="email"
+              placeholder="Enter email"
+              required
+            />
+          </FloatingLabel>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label className="Header">Password</Form.Label>
-          <Form.Control
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            type="password"
-            placeholder="Password"
-            required
-          />
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Password"
+            className="mb-3"
+          >
+            <Form.Control
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              type="password"
+              placeholder="Password"
+              required
+            />
+          </FloatingLabel>
         </Form.Group>
+
         <Form.Group className="mt-5">
           <Button variant="success" type="submit" onClick={submitForm}>
             Log in

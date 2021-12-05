@@ -95,6 +95,10 @@ export default function RecipeDetails() {
           <hr />
           <h3 className="Header">Instructions</h3>
           <p>{recipe.instructions}</p>
+          <p>
+            {/* <label className="Header">Reference:</label>{" "} */}
+            <label><i>{recipe.reference}</i></label>
+          </p>
           <Link to={`/edit_recipe`}>
             <Button variant="success" style={{ marginRight: "8px" }}>
               Edit recipe
