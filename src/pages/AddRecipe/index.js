@@ -3,7 +3,7 @@ import RecipeForm from "../../components/RecipeForm";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 import { newRecipe } from "../../store/recipe/actions";
 import { selectUser } from "../../store/user/selectors";
 
@@ -34,10 +34,12 @@ export default function AddRecipe() {
 
   return (
     <Container className="pagePadding">
-      <p>
+      <Col md={{ span: 10, offset: 1 }}>
         {"< "}
-        <Link to={`/`} className="Link">back to overview</Link>
-      </p>
+        <Link to={`/`} className="Link">
+          back to overview
+        </Link>
+      </Col>
       <RecipeForm
         pageTitle={pageTitle}
         recipe={recipe}

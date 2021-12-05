@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Badge, Dropdown, Image } from "react-bootstrap";
+import { Container, Col, Badge, Dropdown, Image } from "react-bootstrap";
 import { fetchSpecificRecipe } from "../../store/recipe/actions";
 import { deleteSpecificRecipe } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";
 import { selectRecipe } from "../../store/recipe/selectors";
 import Button from "react-bootstrap/Button";
 import RecipeDeletePopup from "../../components/RecipeDeletePopup";
+import RecipeDetailsIngredients from "../../components/RecipeDetailsIngredients";
 
 export default function RecipeDetails() {
   const dispatch = useDispatch();
@@ -46,11 +47,9 @@ export default function RecipeDetails() {
         <></>
       ) : (
         <Container
+          as={Col}
+          md={{ span: 8, offset: 2 }}
           className="FullRecipe pagePadding"
-          style={{
-            maxWidth: "600px",
-            margin: "auto",
-          }}
         >
           <p>
             {"< "}
@@ -78,16 +77,20 @@ export default function RecipeDetails() {
             <tbody>
               {recipe.ingredients.map((ingredient) => {
                 return (
-                  <tr>
-                    <td style={{ paddingRight: "20px" }}>
-                      {ingredient.recipe_ingredients.quantity}{" "}
-                      {ingredient.recipe_ingredients.unit_singular}
-                      {/* {ingredient.recipe_ingredients.quantity > 1
-                          ? ingredient.recipe_ingredients.unit_plural
-                          : ingredient.recipe_ingredients.unit_singular} */}
-                    </td>
-                    <td>{ingredient.title}</td>
-                  </tr>
+                  <RecipeDetailsIngredients
+                    ingredient={ingredient}
+                    key={ingredient.id}
+                  />
+                  // <tr>
+                  //   <td style={{ paddingRight: "20px" }}>
+                  //     {ingredient.recipe_ingredients.quantity}{" "}
+                  //     {ingredient.recipe_ingredients.unit_singular}
+                  //     {/* {ingredient.recipe_ingredients.quantity > 1
+                  //         ? ingredient.recipe_ingredients.unit_plural
+                  //         : ingredient.recipe_ingredients.unit_singular} */}
+                  //   </td>
+                  //   <td>{ingredient.title}</td>
+                  // </tr>
                 );
               })}
             </tbody>
@@ -97,7 +100,9 @@ export default function RecipeDetails() {
           <p>{recipe.instructions}</p>
           <p>
             {/* <label className="Header">Reference:</label>{" "} */}
-            <label><i>{recipe.reference}</i></label>
+            <label>
+              <i>{recipe.reference}</i>
+            </label>
           </p>
           <Link to={`/edit_recipe`}>
             <Button variant="success" style={{ marginRight: "8px" }}>

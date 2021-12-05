@@ -37,7 +37,7 @@ export default function RecipeBrowser() {
       <h1 className='Header'>MyRecipeBook</h1>
       </Col>
       </Row> */}
-      <div className="pagePadding" style={{paddingTop:"40px"}}>
+      <div className="pagePadding" style={{ paddingTop: "40px" }}>
         {!recipes ? (
           <></>
         ) : (
@@ -48,6 +48,19 @@ export default function RecipeBrowser() {
           </div>
         )}
       </div>
+
+      {/* <Col
+        sm={{ span: 1, offset: 4 }}
+        // className="d-flex justify-content-sm-end"
+      >
+        <Link
+          to={`/about`}
+          className="Link"
+          // style={{ position: "absolute", right: "8px", bottom: "8px" }}
+        >
+          about
+        </Link>
+      </Col> */}
     </Container>
   );
 }
