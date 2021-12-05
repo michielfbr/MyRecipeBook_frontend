@@ -1,20 +1,19 @@
 import React, { useEffect } from "react";
 import "./App.css";
-
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
-import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import RecipeDetails from "./pages/RecipeDetails";
 import AddRecipe from "./pages/AddRecipe";
 import EditRecipe from "./pages/EditRecipe";
+import SignUp from "./pages/SignUp";
+import About from "./pages/About";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-import { Jumbotron } from "react-bootstrap";
 
 const Other = () => (
   <div>
@@ -41,6 +40,7 @@ function App() {
         <Route path="/edit_recipe" element={<EditRecipe />} />
         <Route path="/add_recipe" element={<AddRecipe />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
