@@ -10,6 +10,7 @@ import AddRecipe from "./pages/AddRecipe";
 import EditRecipe from "./pages/EditRecipe";
 import SignUp from "./pages/SignUp";
 import About from "./pages/About";
+import Footer from "./components/Footer";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -42,6 +43,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

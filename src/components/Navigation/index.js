@@ -40,7 +40,7 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar className="Navbar" expand="sm">
+    <Navbar className="Navbar" expand="sm" sticky="top">
       <Navbar.Brand as={NavLink} to="/">
         <label className="NavbarHeader">MyRecipeBook</label>
       </Navbar.Brand>

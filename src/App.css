@@ -19,6 +19,19 @@
   margin-left: 8px;
 }
 
+.Footer {
+  height: 30px;
+  margin-right: 0px;
+}
+
+.FooterText {
+  font-family: "Merriweather";
+  /* font-size: "25px"; */
+  color: #262730;
+  text-decoration: inherit;
+  margin-left: auto;
+}
+
 .AddRecipeButton {
   background-color: #f8f6ee;
   color: #f8f6ee;
@@ -30,18 +43,13 @@
   background-color: #184e3b;
   color: #f8f6ee;
   margin-right: 8px;
-
-  /* fontWeight: "bolder", */
-  /* fontSize: "25px", */
-  /* boxShadow: " 4px 3px darkblue , 3px 3px", */
   border-style: 1px solid #f8f6ee;
   border-radius: 5px;
-  /* margin: "20px", */
 }
 
 .pagePadding {
-    padding-top: 10px;
-    padding-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 40px;
 }
 
 .Header {
