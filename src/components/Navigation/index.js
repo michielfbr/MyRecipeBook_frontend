@@ -4,10 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectToken, selectUser } from "../../store/user/selectors";
-import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
-
 
 export default function Navigation() {
   const token = useSelector(selectToken);

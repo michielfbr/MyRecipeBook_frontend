@@ -6,7 +6,7 @@ import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { Row, Col, FloatingLabel } from "react-bootstrap";
+import { Col, FloatingLabel } from "react-bootstrap";
 
 export default function Login() {
   const [email, setEmail] = useState("");

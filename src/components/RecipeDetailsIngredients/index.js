@@ -1,6 +1,4 @@
 import React from "react";
-import { Row, Col, Badge, OverlayTrigger } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 export default function RecipeDetailsIngredients(props) {
   const { ingredient } = props;

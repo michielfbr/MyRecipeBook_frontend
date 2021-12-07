@@ -16,12 +16,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 
-const Other = () => (
-  <div>
-    <h1>Other</h1>
-  </div>
-);
-
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);

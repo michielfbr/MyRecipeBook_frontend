@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Col, Badge, Dropdown, Image } from "react-bootstrap";
+import { Container, Col, Badge, Image } from "react-bootstrap";
 import { fetchSpecificRecipe } from "../../store/recipe/actions";
 import { deleteSpecificRecipe } from "../../store/recipe/actions";
 import { Link } from "react-router-dom";

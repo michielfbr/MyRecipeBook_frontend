@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import {
   Navbar,
   Nav,
-  Button,
   Offcanvas,
   Container,
   Col,
 } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   const [show, setShow] = useState(false);
