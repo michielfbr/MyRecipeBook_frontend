@@ -19,7 +19,7 @@ export default function RecipeFormTags(props) {
     getTagOptions();
   }, []);
   return (
-    <Col key={index}>
+    <Col>
       <Typeahead
         id="tag title"
         defaultInputValue={tag.title}

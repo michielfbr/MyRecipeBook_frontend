@@ -55,15 +55,14 @@ export default function RecipeFormIngredients(props) {
         </Col>
         <Col xs={3}>
           <Form.Control
+            defaultValue="unit"
             value={ingr.recipe_ingredients.unit_singular}
             onChange={(event) =>
               changeIngredientUnitSingular(event.target.value, index)
             }
             as="select"
           >
-            <option disabled selected>
-              unit
-            </option>
+            <option disabled>unit</option>
             <option>g</option>
             <option>kg</option>
             <option>l</option>
@@ -76,7 +75,11 @@ export default function RecipeFormIngredients(props) {
           </Form.Control>
         </Col>
         <Col xs={1}>
-          <Button variant="secondary" size="sm" onClick={() => removeIngredient(index)}>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => removeIngredient(index)}
+          >
             x
           </Button>
         </Col>

@@ -18,8 +18,6 @@ export default function EditRecipe() {
   };
 
   function submitRecipe(event) {
-    console.log("Edit recipe submitted in page");
-    console.log("Recipe to submit:", recipe);
     dispatch(updateRecipe(recipe));
   }
 
@@ -31,7 +29,9 @@ export default function EditRecipe() {
       <Container className="pagePadding">
         <Col md={{ span: 10, offset: 1 }}>
           {"< "}
-          <Link to={`/recipe/${recipe.id}`} className="Link">back to recipe</Link>
+          <Link to={`/recipe/${recipe.id}`} className="Link">
+            back to recipe
+          </Link>
         </Col>
         <RecipeForm
           pageTitle={pageTitle}
