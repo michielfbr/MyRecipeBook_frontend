@@ -95,7 +95,7 @@ export const newRecipe = (recipe) => {
 export const updateRecipe = (recipe) => {
   return async (dispatch, getState) => {
     try {
-      console.log("userId", recipe.userId);
+      // console.log("userId", recipe.userId);
       const response = await axios.put(
         `${apiUrl}/recipe/${recipe.id}`,
         {
@@ -140,7 +140,7 @@ export function deleteSpecificRecipe(recipeId) {
       dispatch(appLoading());
       await axios.delete(`${apiUrl}/recipe/${recipeId}`);
 
-      dispatch(setMessage("danger", true, "Recipe deleted."));
+      dispatch(setMessage("danger", true, "Recipe deleted.", 2000));
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {

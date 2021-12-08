@@ -97,7 +97,8 @@ export default function RecipeDetails() {
           </table>
           <hr />
           <h3 className="Header">Instructions</h3>
-          <p>{recipe.instructions}</p>
+          {/* <p>{recipe.instructions}</p> */}
+          <div dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
           <p>
             {/* <label className="Header">Reference:</label>{" "} */}
             <label>
