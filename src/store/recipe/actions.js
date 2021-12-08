@@ -140,7 +140,7 @@ export function deleteSpecificRecipe(recipeId) {
       dispatch(appLoading());
     const response = await axios.delete(`${apiUrl}/recipe/${recipeId}`);
 
-    dispatch(setMessage("danger", true, "Recipe deleted."));
+    dispatch(setMessage("danger", true, "Recipe deleted.", 2000));
     dispatch(appDoneLoading());
   } catch (error) {
     if (error.response) {

@@ -23,7 +23,6 @@ export default function RecipeForm({
 
   function submitForm(event) {
     event.preventDefault();
-    console.log("Save recipe submitted in form");
     submitRecipe();
   }
 
@@ -56,7 +55,10 @@ export default function RecipeForm({
   }
 
   function addIngredient() {
-    const newIngredients = [...ingredients, { recipe_ingredients: {} }];
+    const newIngredients = [
+      ...ingredients,
+      { recipe_ingredients: { quantity: "" } },
+    ];
     setIngredients(newIngredients);
   }
 
@@ -138,6 +140,7 @@ export default function RecipeForm({
             {tags.map((tag, index) => {
               return (
                 <RecipeFormTags
+                  key={index}
                   tag={tag}
                   index={index}
                   changeTagTitle={changeTagTitle}
@@ -154,6 +157,7 @@ export default function RecipeForm({
         {ingredients.map((ingr, index) => {
           return (
             <RecipeFormIngredients
+              key={index}
               ingr={ingr}
               index={index}
               removeIngredient={removeIngredient}

@@ -37,7 +37,7 @@ export default function Login() {
         <h4>A place to store and browse through the recipes you collect</h4>
         <Form.Group className="mt-5" controlId="formBasicEmail">
           <FloatingLabel
-            controlId="floatingInput"
+            controlId="email"
             label="Email adress"
             className="mb-3"
           >
@@ -53,7 +53,7 @@ export default function Login() {
 
         <Form.Group controlId="formBasicPassword">
           <FloatingLabel
-            controlId="floatingInput"
+            controlId="password"
             label="Password"
             className="mb-3"
           >
