@@ -4,19 +4,21 @@ A place to store and browse through the recipes you collect
 
 ## Table of Contents
 
-[Description] (https://github.com/michielfbr/MyRecipeBook_frontend#description)
-[Screenshots](https://github.com/michielfbr/MyRecipeBook_frontend#screenshots)
-[Technology] (https://github.com/michielfbr/MyRecipeBook_frontend#technology-used)
-[Goals] (https://github.com/michielfbr/MyRecipeBook_frontend#goals-for-this-project)
-[Userstories] (https://github.com/michielfbr/MyRecipeBook_frontend#user-stories)
-[Wireframe] (https://github.com/michielfbr/MyRecipeBook_frontend#wireframe)
-[Repositories] (https://github.com/michielfbr/MyRecipeBook_frontend#repositories)
+- [Description](https://github.com/michielfbr/MyRecipeBook_frontend#description)
+- [Screenshots](https://github.com/michielfbr/MyRecipeBook_frontend#screenshots)
+- [Technology](https://github.com/michielfbr/MyRecipeBook_frontend#technology-used)
+- [Goals](https://github.com/michielfbr/MyRecipeBook_frontend#goals-for-this-project)
+- [Userstories](https://github.com/michielfbr/MyRecipeBook_frontend#user-stories)
+- [Wireframe](https://github.com/michielfbr/MyRecipeBook_frontend#wireframe)
+- [Repositories](https://github.com/michielfbr/MyRecipeBook_frontend#repositories)
 
 ## Description
 
 For my portfolio project during my full-stack javascript bootcamp I built an app that allows users to create wish lists of restaurants they want to try. Users can share wish lists with friends and there can be multiple collaborators on a list. The front-end is created with JavaScript, React, Redux and CSS, and the back-end with an Express server, JWT & Bcrypt authentication and a PostgreSQL database with Sequelize ORM. I fetched restaurant data from Google Places API and rendered a map for each restaurant's location.
 
 I started with brainstorming and creating a database diagram, wireframes, and user stories followed by setting up the back end and working through each feature. I was able to apply many new concepts including many to many relations, using maps, and further my skills with React Redux.
+
+[^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
 
 ## Screenshots
 
@@ -26,7 +28,9 @@ I started with brainstorming and creating a database diagram, wireframes, and us
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 ![MyRecipeBook_editRecipe](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_editRecipe.png)
 
-## Technology Used
+[^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
+
+## Technology
 
 - JavaScript
 - React
@@ -43,28 +47,38 @@ I started with brainstorming and creating a database diagram, wireframes, and us
 - Typeahead (form autocomplete)
 - Quill (rich text editor)
 
+[^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
+
 ## Goals for this Project
 
 - build a full-stack app, following every step from idea to deployment
 - have a MVP as working prototype in 1 week
 - explore and implement new technologies
 
+[^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
+
 ## User Stories
 
 A user can ...
 
-- ... log in to see an overview of all its recipes
-- ... search and filter its recipes
-- ... click on a recipe to see its details
-- ... navigate to a form to add a new recipe
-- ... edit existing recipes
-- ... set 1 recipe to "Cooking this today" to bookmark it
-- ... see frequently cooked recipes, tracked by number of "Cooking this today"s
+- log in to see an overview of all its recipes
+- search and filter its recipes
+- click on a recipe to see its details
+- navigate to a form to add a new recipe
+- edit existing recipes
+- set 1 recipe to "Cooking this today" to bookmark it
+- see frequently cooked recipes, tracked by number of "Cooking this today"s
+
+[^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
 
 ## Wireframe
 
 Go to [Figma](https://www.figma.com/file/sWsPpwSuUDY75SikKpJLNP/MyRecipeBook?node-id=0%3A1) to see the wireframes & design concept
 
+[^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
+
 ## Repositories
 
 [MyRecipeBook_frontend](https://github.com/michielfbr/MyRecipeBook_frontend) [MyRecipeBook_server](https://github.com/michielfbr/MyRecipeBook_server)
+
+[^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
