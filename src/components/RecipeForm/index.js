@@ -11,7 +11,7 @@ import {
 import RecipeFormIngredients from "../RecipeFormIngredients";
 import RecipeFormTags from "../RecipeFormTags";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import "./quill.snow.css";
 
 export default function RecipeForm({
   pageTitle,
@@ -208,7 +208,7 @@ export default function RecipeForm({
           placeholder="Instructions"
           required
         /> */}
-
+<div style={{backgroundColor: "#ffffff"}}>
         <ReactQuill
           modules={editorModules}
           theme="snow"
@@ -219,7 +219,7 @@ export default function RecipeForm({
               target: { name: "instructions", value: content },
             })
           }
-        />
+        /></div>
       </Form.Group>
 
       <br />
