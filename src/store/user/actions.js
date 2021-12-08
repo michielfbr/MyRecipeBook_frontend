@@ -26,14 +26,15 @@ const tokenStillValid = (userWithoutToken) => ({
 
 export const logOut = () => ({ type: LOG_OUT });
 
-export const signUp = (name, email, password) => {
+export const signUp = (email, password, firstName, lastName) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
       const response = await axios.post(`${apiUrl}/auth/signup`, {
-        name,
         email,
         password,
+        firstName,
+        lastName,
       });
 
       dispatch(loginSuccess(response.data));
@@ -66,7 +67,7 @@ export const login = (email, password) => {
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
-        console.log(error.response.data.message);
+        console.log(error);
         dispatch(setMessage("danger", true, error.response.data.message));
       } else {
         console.log(error.message);
