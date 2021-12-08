@@ -4,13 +4,13 @@ A place to store and browse through the recipes you collect
 
 ## Table of Contents
 
-- [Description] (https://github.com/michielfbr/MyRecipeBook_frontend#description)
-- [Screenshots](https://github.com/michielfbr/MyRecipeBook_frontend#screenshots)
-- [Technology] (https://github.com/michielfbr/MyRecipeBook_frontend#technology-used)
-- [Goals] (https://github.com/michielfbr/MyRecipeBook_frontend#goals-for-this-project)
-- [Userstories] (https://github.com/michielfbr/MyRecipeBook_frontend#user-stories)
-- [Wireframe] (https://github.com/michielfbr/MyRecipeBook_frontend#wireframe)
-- [Repositories] (https://github.com/michielfbr/MyRecipeBook_frontend#repositories)
+[Description] (https://github.com/michielfbr/MyRecipeBook_frontend#description)
+[Screenshots](https://github.com/michielfbr/MyRecipeBook_frontend#screenshots)
+[Technology] (https://github.com/michielfbr/MyRecipeBook_frontend#technology-used)
+[Goals] (https://github.com/michielfbr/MyRecipeBook_frontend#goals-for-this-project)
+[Userstories] (https://github.com/michielfbr/MyRecipeBook_frontend#user-stories)
+[Wireframe] (https://github.com/michielfbr/MyRecipeBook_frontend#wireframe)
+[Repositories] (https://github.com/michielfbr/MyRecipeBook_frontend#repositories)
 
 ## Description
 
