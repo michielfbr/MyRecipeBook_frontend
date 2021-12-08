@@ -61,8 +61,8 @@ export default function RecipeForm({
   }
 
   function removeIngredient(index) {
-    const newIngredients = [...ingredients];
-    const deletedIngredient = newIngredients.splice(index, 1);
+    const newIngredients = [...ingredients].splice(index, 1);
+    // const deletedIngredient = newIngredients.splice(index, 1);
     setIngredients(newIngredients);
   }
 

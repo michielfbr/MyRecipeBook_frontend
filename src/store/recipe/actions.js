@@ -138,15 +138,16 @@ export function deleteSpecificRecipe(recipeId) {
   return async function thunk(dispatch, getState) {
     try {
       dispatch(appLoading());
-    const response = await axios.delete(`${apiUrl}/recipe/${recipeId}`);
+      await axios.delete(`${apiUrl}/recipe/${recipeId}`);
 
-    dispatch(setMessage("danger", true, "Recipe deleted."));
-    dispatch(appDoneLoading());
-  } catch (error) {
-    if (error.response) {
-      console.log(error.response.data.message);
-    } else {
-      console.log(error.message);
+      dispatch(setMessage("danger", true, "Recipe deleted."));
+      dispatch(appDoneLoading());
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+      } else {
+        console.log(error.message);
+      }
     }
   };
-}}
+}
