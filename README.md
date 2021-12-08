@@ -18,6 +18,8 @@ For my portfolio project during my full-stack javascript bootcamp I built an app
 
 I started with brainstorming and creating a database diagram, wireframes, and user stories followed by setting up the back end and working through each feature. I was able to apply many new concepts including many to many relations, using maps, and further my skills with React Redux.
 
+[^ back up](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
+
 ## Screenshots
 
 ![MyRecipeBook_recipeBrowser](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_recipeBrowser.png)
@@ -25,6 +27,8 @@ I started with brainstorming and creating a database diagram, wireframes, and us
 ![MyRecipeBook_recipeDetails](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_recipeDetails.png)
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 ![MyRecipeBook_editRecipe](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_editRecipe.png)
+
+[^ back up](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
 
 ## Technology Used
 
@@ -43,11 +47,15 @@ I started with brainstorming and creating a database diagram, wireframes, and us
 - Typeahead (form autocomplete)
 - Quill (rich text editor)
 
+[^ back up](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
+
 ## Goals for this Project
 
 - build a full-stack app, following every step from idea to deployment
 - have a MVP as working prototype in 1 week
 - explore and implement new technologies
+
+[^ back up](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
 
 ## User Stories
 
@@ -61,10 +69,16 @@ A user can ...
 - ... set 1 recipe to "Cooking this today" to bookmark it
 - ... see frequently cooked recipes, tracked by number of "Cooking this today"s
 
+[^ back up](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
+
 ## Wireframe
 
 Go to [Figma](https://www.figma.com/file/sWsPpwSuUDY75SikKpJLNP/MyRecipeBook?node-id=0%3A1) to see the wireframes & design concept
 
+[^ back up](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
+
 ## Repositories
 
 [MyRecipeBook_frontend](https://github.com/michielfbr/MyRecipeBook_frontend) [MyRecipeBook_server](https://github.com/michielfbr/MyRecipeBook_server)
+
+[^ back up](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
