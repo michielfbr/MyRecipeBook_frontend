@@ -95,7 +95,7 @@ export const newRecipe = (recipe) => {
 export const updateRecipe = (recipe) => {
   return async (dispatch, getState) => {
     try {
-      console.log("userId", recipe.userId);
+      // console.log("userId", recipe.userId);
       const response = await axios.put(
         `${apiUrl}/recipe/${recipe.id}`,
         {

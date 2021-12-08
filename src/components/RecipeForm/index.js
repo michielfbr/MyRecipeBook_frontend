@@ -10,6 +10,8 @@ import {
 } from "react-bootstrap";
 import RecipeFormIngredients from "../RecipeFormIngredients";
 import RecipeFormTags from "../RecipeFormTags";
+import ReactQuill from "react-quill";
+import "./quill.snow.css";
 
 export default function RecipeForm({
   pageTitle,
@@ -73,6 +75,14 @@ export default function RecipeForm({
       Add ingredient
     </Tooltip>
   );
+
+  const editorModules = {
+    toolbar: [
+      ["bold", "italic"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["clean"],
+    ],
+  };
 
   return (
     <Form as={Col} md={{ span: 10, offset: 1 }} className="mt-5">
@@ -186,13 +196,9 @@ export default function RecipeForm({
       <hr />
 
       <Form.Group>
-        {/* <FloatingLabel
-          controlId="floatingInput"
-          label="Instructions"
-          className="mb-3"
-        > */}
         <Form.Label className="Header">Instructions</Form.Label>
-        <Form.Control
+
+        {/* <Form.Control
           as="textarea"
           style={{ height: "300px" }}
           value={instructions}
@@ -201,9 +207,21 @@ export default function RecipeForm({
           type="text"
           placeholder="Instructions"
           required
-        />
-        {/* </FloatingLabel> */}
+        /> */}
+<div style={{backgroundColor: "#ffffff"}}>
+        <ReactQuill
+          modules={editorModules}
+          theme="snow"
+          name="instructions"
+          value={instructions}
+          onChange={(content) =>
+            onChangeHandler({
+              target: { name: "instructions", value: content },
+            })
+          }
+        /></div>
       </Form.Group>
+
       <br />
       <Form.Group>
         <FloatingLabel
