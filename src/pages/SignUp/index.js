@@ -4,10 +4,7 @@ import {
   Form,
   Button,
   Col,
-  Row,
   FloatingLabel,
-  OverlayTrigger,
-  Tooltip,
 } from "react-bootstrap";
 import { signUp } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
@@ -34,10 +31,10 @@ export default function SignUp() {
 
     dispatch(signUp(email, password, firstName, lastName));
 
-    // setEmail("");
-    // setPassword("");
-    // setFirstName("");
-    // setLastName("");
+    setEmail("");
+    setPassword("");
+    setFirstName("");
+    setLastName("");
   }
 
   return (

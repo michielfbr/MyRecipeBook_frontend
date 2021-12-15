@@ -28,7 +28,6 @@ export function fetchAllRecipes(userId) {
     const response = await axios.get(`${apiUrl}/recipe/all/${userId}`);
 
     const recipes = response.data;
-    // console.log("recipe/actions.js All recipes:", recipes);
 
     dispatch(recipesFetched({ recipes }));
     dispatch(appDoneLoading());
@@ -44,7 +43,6 @@ export function fetchAllMatchingRecipes(userId, search) {
     });
 
     const recipes = response.data;
-    console.log("recipe/actions.js All recipes with", search , recipes);
 
     dispatch(recipesFetched({ recipes }));
     dispatch(appDoneLoading());
@@ -58,7 +56,6 @@ export function fetchSpecificRecipe(recipeId) {
     const response = await axios.get(`${apiUrl}/recipe/${recipeId}`);
 
     const recipe = response.data;
-    // console.log("recipe/actions.js Specific recipe:", recipe);
 
     dispatch(recipeFetched({ recipe }));
     dispatch(appDoneLoading());
@@ -111,7 +108,6 @@ export const newRecipe = (recipe) => {
 export const updateRecipe = (recipe) => {
   return async (dispatch, getState) => {
     try {
-      // console.log("userId", recipe.userId);
       const response = await axios.put(
         `${apiUrl}/recipe/${recipe.id}`,
         {
