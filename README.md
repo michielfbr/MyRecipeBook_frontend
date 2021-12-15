@@ -26,9 +26,9 @@ The app styling looks very clean, wich is the result of quite some effort on det
 ## Screenshots
 
 ![MyRecipeBook_recipeBrowser](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_recipeBrowser.png)
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;
 ![MyRecipeBook_recipeDetails](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_recipeDetails.png)
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;
 ![MyRecipeBook_editRecipe](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_editRecipe.png)
 
 [^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
