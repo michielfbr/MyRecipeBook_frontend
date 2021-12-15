@@ -14,10 +14,12 @@ A place to store and browse through the recipes you collect
 
 ## Description
 
-For my portfolio project during my full-stack javascript bootcamp I built an app that allows users to create wish lists of restaurants they want to try. Users can share wish lists with friends and there can be multiple collaborators on a list. The front-end is created with JavaScript, React, Redux and CSS, and the back-end with an Express server, JWT & Bcrypt authentication and a PostgreSQL database with Sequelize ORM. I fetched restaurant data from Google Places API and rendered a map for each restaurant's location.
+MyRecipeBook is a ReactJS web app I built to solve my own need for a way to store and then browse through the recipes I have collected over the years. Reipes can be added, edited and deleted. Along with tags and their ingredients, which are stored in different tables in the database.
 
-I started with brainstorming and creating a database diagram, wireframes, and user stories followed by setting up the back end and working through each feature. I was able to apply many new concepts including many to many relations, using maps, and further my skills with React Redux.
+The goal of this project was to design and create a fullstack web app from scratch. Witing user stories, modeling a database, creating wireframes, build your own backend with all the neccesary endpoints, build your own frontend to talk to the backend and present the user enything it needs and finally style everything to your own liking.
 
+A big portion of work has gone into the form, where a user can add or edit an {ingredient} to the [ingredients ] nested in the {recipe}. In the backend the {recipe} is decomposed to the recipe table, the ingredients table and the join table wich holds the ingredients quantity and unit information.
+The app styling looks very clean, wich is the result of quite some effort on details there.
 
 [^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
 
