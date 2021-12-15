@@ -14,6 +14,13 @@ export function recipesFetched(data) {
   };
 }
 
+export function recipeFetched(data) {
+  return {
+    type: "recipeFetched",
+    payload: data,
+  };
+}
+
 // Get all recipes belonging to user by :userId
 export function fetchAllRecipes(userId) {
   return async function thunk(dispatch, getState) {
@@ -28,14 +35,23 @@ export function fetchAllRecipes(userId) {
   };
 }
 
-export function recipeFetched(data) {
-  return {
-    type: "recipeFetched",
-    payload: data,
+// Get all recipes belonging to user and matching search query
+export function fetchAllMatchingRecipes(userId, search) {
+  return async function thunk(dispatch, getState) {
+    dispatch(appLoading());
+    const response = await axios.post(`${apiUrl}/recipe/all/${userId}`, {
+      search,
+    });
+
+    const recipes = response.data;
+    console.log("recipe/actions.js All recipes with", search , recipes);
+
+    dispatch(recipesFetched({ recipes }));
+    dispatch(appDoneLoading());
   };
 }
 
-// Get specific recipe by its :recipeId
+// Get specific recipe by :recipeId
 export function fetchSpecificRecipe(recipeId) {
   return async function thunk(dispatch, getState) {
     dispatch(appLoading());
