@@ -14,20 +14,6 @@ export function recipesFetched(data) {
   };
 }
 
-// Get all recipes belonging to user by :userId
-export function fetchAllRecipes(userId) {
-  return async function thunk(dispatch, getState) {
-    dispatch(appLoading());
-    const response = await axios.get(`${apiUrl}/recipe/all/${userId}`);
-
-    const recipes = response.data;
-    // console.log("recipe/actions.js All recipes:", recipes);
-
-    dispatch(recipesFetched({ recipes }));
-    dispatch(appDoneLoading());
-  };
-}
-
 export function recipeFetched(data) {
   return {
     type: "recipeFetched",
@@ -35,14 +21,41 @@ export function recipeFetched(data) {
   };
 }
 
-// Get specific recipe by its :recipeId
+// Get all recipes belonging to user by :userId
+export function fetchAllRecipes(userId) {
+  return async function thunk(dispatch, getState) {
+    dispatch(appLoading());
+    const response = await axios.get(`${apiUrl}/recipe/all/${userId}`);
+
+    const recipes = response.data;
+
+    dispatch(recipesFetched({ recipes }));
+    dispatch(appDoneLoading());
+  };
+}
+
+// Get all recipes belonging to user and matching search query
+export function fetchAllMatchingRecipes(userId, search) {
+  return async function thunk(dispatch, getState) {
+    dispatch(appLoading());
+    const response = await axios.post(`${apiUrl}/recipe/all/${userId}`, {
+      search: search,
+    });
+
+    const recipes = response.data;
+
+    dispatch(recipesFetched({ recipes }));
+    dispatch(appDoneLoading());
+  };
+}
+
+// Get specific recipe by :recipeId
 export function fetchSpecificRecipe(recipeId) {
   return async function thunk(dispatch, getState) {
     dispatch(appLoading());
     const response = await axios.get(`${apiUrl}/recipe/${recipeId}`);
 
     const recipe = response.data;
-    // console.log("recipe/actions.js Specific recipe:", recipe);
 
     dispatch(recipeFetched({ recipe }));
     dispatch(appDoneLoading());
@@ -95,7 +108,6 @@ export const newRecipe = (recipe) => {
 export const updateRecipe = (recipe) => {
   return async (dispatch, getState) => {
     try {
-      // console.log("userId", recipe.userId);
       const response = await axios.put(
         `${apiUrl}/recipe/${recipe.id}`,
         {

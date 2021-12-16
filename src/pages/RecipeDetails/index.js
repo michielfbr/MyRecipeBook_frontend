@@ -60,7 +60,7 @@ export default function RecipeDetails() {
           <h1 className="Header">{recipe.title}</h1>
           <h6>Cooking time: {recipe.cookingTime.substring(0, 5)}</h6>
 
-          <h4>
+          <h5>
             {recipe.tags.map((tag) => {
               return (
                 <Badge pill className="Tagbadge" bg="succes" key={tag.id}>
@@ -68,7 +68,7 @@ export default function RecipeDetails() {
                 </Badge>
               );
             })}
-          </h4>
+          </h5>
 
           <hr />
           <h3 className="Header">Ingredients</h3>
@@ -81,23 +81,12 @@ export default function RecipeDetails() {
                     ingredient={ingredient}
                     key={ingredient.id}
                   />
-                  // <tr>
-                  //   <td style={{ paddingRight: "20px" }}>
-                  //     {ingredient.recipe_ingredients.quantity}{" "}
-                  //     {ingredient.recipe_ingredients.unit_singular}
-                  //     {/* {ingredient.recipe_ingredients.quantity > 1
-                  //         ? ingredient.recipe_ingredients.unit_plural
-                  //         : ingredient.recipe_ingredients.unit_singular} */}
-                  //   </td>
-                  //   <td>{ingredient.title}</td>
-                  // </tr>
                 );
               })}
             </tbody>
           </table>
           <hr />
           <h3 className="Header">Instructions</h3>
-          {/* <p>{recipe.instructions}</p> */}
           <div dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
           <p>
             {/* <label className="Header">Reference:</label>{" "} */}
