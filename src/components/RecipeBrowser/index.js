@@ -19,16 +19,16 @@ export default function RecipeBrowser() {
 
   return (
     <Container>
-      <div className="pagePadding" style={{ paddingTop: "40px" }}>
+      <div className="pagePadding" style={{ paddingTop: "32px" }}>
         <RecipeBrowserSearchForm userId={userId} />
         {!recipes ? (
           <></>
         ) : (
-          <>
+          <div style={{ paddingTop: "32px" }}>
             {recipes.map((recipe) => {
               return <RecipeBrowserCard key={recipe.id} recipe={recipe} />;
             })}
-          </>
+          </div>
         )}
       </div>
     </Container>

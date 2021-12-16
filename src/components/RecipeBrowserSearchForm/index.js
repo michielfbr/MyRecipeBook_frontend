@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Form, Button, Col, Row } from "react-bootstrap";
-import { fetchAllMatchingRecipes } from "../../store/recipe/actions";
+import {
+  Form,
+  Button,
+  Col,
+  Row,
+  InputGroup,
+  FormControl,
+  // CloseButton,
+} from "react-bootstrap";
+import {
+  fetchAllRecipes,
+  fetchAllMatchingRecipes,
+} from "../../store/recipe/actions";
 
 export default function RecipeBrowserSearchForm(props) {
   const { userId } = props;
@@ -9,27 +20,85 @@ export default function RecipeBrowserSearchForm(props) {
   const [search, setSearch] = useState("");
 
   function submitForm(event) {
+    console.log("search", search)
     dispatch(fetchAllMatchingRecipes(userId, search));
     event.preventDefault();
   }
+  function clearSearch() {
+    setSearch("");
+    dispatch(fetchAllRecipes(userId));
+  }
 
   return (
-    <Form as={Row} className="mt-0">
-      <Form.Group as={Col} md={{ span: 4, offset: 3 }}>
-        <Form.Control
-          value={search}
-          name="search"
-          onChange={(event) => setSearch(event.target.value)}
-          type="text"
-          placeholder="Search recipe titles"
-          required
-        />
-      </Form.Group>
-      <Form.Group as={Col} md={{ span: 2, offset: 0 }}>
-        <Button variant="success" type="submit" onClick={submitForm}>
-          Search
-        </Button>
-      </Form.Group>
-    </Form>
+    <>
+      <Form>
+        <Row className="d-flex justify-content-center align-items-center">
+          {/* <Form className="d-flex align-items-center"> */}
+          <Col xs="6" lg="4">
+            <InputGroup>
+              {/* <div class="form-group has-feedback has-clear">
+          <input
+            id="searchinput"
+            type="search"
+            value={search}
+            name="search"
+            class="form-control"
+            placeholder="Search recipe titles ..."
+            onChange={(event) => setSearch(event.target.value)}
+          />
+        </div> */}
+
+              <FormControl
+                type="text"
+                value={search}
+                name="search"
+                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Find recipe"
+                required
+              />
+              <Button
+                variant="outline-success"
+                id="button-addon2"
+                onClick={clearSearch}
+              >
+                &times;
+              </Button>
+            </InputGroup>
+          </Col>
+
+          {/* <Col xs="auto">
+            <Form.Group>
+              <CloseButton onClick={clearSearch} />
+            </Form.Group>
+          </Col> */}
+
+          <Col xs="auto">
+            <Form.Group>
+              <Button variant="success" type="submit" onClick={submitForm}>
+                Find
+              </Button>
+            </Form.Group>
+          </Col>
+
+          {/* <Col xs="auto">
+            <Form.Group>
+              <Button variant="success" type="submit" onClick={submitForm}>
+                &#128269;
+              </Button>
+            </Form.Group>
+          </Col> */}
+
+          {/* <Col xs="auto">
+            <Form.Group>
+              <Button variant="outline-success" onClick={clearSearch}>
+                Clear search
+              </Button>
+            </Form.Group>
+          </Col> */}
+
+          {/* </Form> */}
+        </Row>
+      </Form>
+    </>
   );
 }
