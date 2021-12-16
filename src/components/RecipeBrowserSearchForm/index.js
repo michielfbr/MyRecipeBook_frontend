@@ -20,7 +20,6 @@ export default function RecipeBrowserSearchForm(props) {
   const [search, setSearch] = useState("");
 
   function submitForm(event) {
-    console.log("search", search);
     dispatch(fetchAllMatchingRecipes(userId, search));
     event.preventDefault();
   }
