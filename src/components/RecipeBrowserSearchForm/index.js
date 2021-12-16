@@ -20,14 +20,28 @@ export default function RecipeBrowserSearchForm(props) {
   const [search, setSearch] = useState("");
 
   function submitForm(event) {
-    console.log("search", search)
+    console.log("search", search);
     dispatch(fetchAllMatchingRecipes(userId, search));
     event.preventDefault();
   }
+
   function clearSearch() {
     setSearch("");
     dispatch(fetchAllRecipes(userId));
   }
+
+  const clearButton =
+    search === "" ? (
+      <></>
+    ) : (
+      <Button
+        variant="outline-success"
+        id="button-addon2"
+        onClick={clearSearch}
+      >
+        &times;
+      </Button>
+    );
 
   return (
     <>
@@ -56,13 +70,7 @@ export default function RecipeBrowserSearchForm(props) {
                 placeholder="Find recipe"
                 required
               />
-              <Button
-                variant="outline-success"
-                id="button-addon2"
-                onClick={clearSearch}
-              >
-                &times;
-              </Button>
+              {clearButton}
             </InputGroup>
           </Col>
 

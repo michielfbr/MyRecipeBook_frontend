@@ -39,7 +39,7 @@ export function fetchAllMatchingRecipes(userId, search) {
   return async function thunk(dispatch, getState) {
     dispatch(appLoading());
     const response = await axios.post(`${apiUrl}/recipe/all/${userId}`, {
-      search,
+      search: search,
     });
 
     const recipes = response.data;
