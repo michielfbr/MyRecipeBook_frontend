@@ -7,7 +7,6 @@ import {
   Row,
   InputGroup,
   FormControl,
-  // CloseButton,
 } from "react-bootstrap";
 import {
   fetchAllRecipes,
@@ -81,7 +80,12 @@ export default function RecipeBrowserSearchForm(props) {
 
           <Col xs="auto">
             <Form.Group>
-              <Button variant="success" type="submit" onClick={submitForm}>
+              <Button
+                variant="success"
+                size="sm"
+                type="submit"
+                onClick={submitForm}
+              >
                 Find
               </Button>
             </Form.Group>

@@ -66,7 +66,6 @@ export default function RecipeForm({
 
   function removeIngredient(index) {
     const newIngredients = [...ingredients].splice(index, 1);
-    // const deletedIngredient = newIngredients.splice(index, 1);
     setIngredients(newIngredients);
   }
 
@@ -80,7 +79,6 @@ export default function RecipeForm({
     toolbar: [
       ["bold", "italic"],
       [{ list: "ordered" }, { list: "bullet" }],
-      ["clean"],
     ],
   };
 
@@ -185,7 +183,7 @@ export default function RecipeForm({
         overlay={renderTooltip}
       >
         <Button
-          variant="outline-success"
+          variant="outline-success mt-2"
           size="sm"
           type="submit"
           onClick={addIngredient}
@@ -200,7 +198,7 @@ export default function RecipeForm({
 
         {/* <Form.Control
           as="textarea"
-          style={{ height: "300px" }}
+          style={{ height: "18.75rem" }}
           value={instructions}
           name="instructions"
           onChange={(event) => onChangeHandler(event)}
