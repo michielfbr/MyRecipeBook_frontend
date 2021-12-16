@@ -36,7 +36,7 @@ export default function RecipeDetails() {
             alt={recipe.title}
             style={{
               width: "100%",
-              height: "296px",
+              height: "18.5rem",
               objectFit: "cover",
             }}
           ></Image>
@@ -95,14 +95,14 @@ export default function RecipeDetails() {
             </label>
           </p>
           <Link to={`/edit_recipe`}>
-            <Button variant="success" style={{ marginRight: "8px" }}>
+            <Button variant="success" style={{ marginRight: "0.5rem" }}>
               Edit recipe
             </Button>
           </Link>
 
           <Button
             variant="outline-success"
-            style={{ marginRight: "8px" }}
+            style={{ marginRight: "0.5rem" }}
             onClick={() => setDeleteRecipePopupShow(true)}
           >
             Delete recipe

@@ -5,7 +5,7 @@
   font-family: "Roboto";
   color: #262730;
   min-height: 100vh;
-  font-size: "16px";
+  font-size: "1rem";
 }
 
 .Navbar {
@@ -16,17 +16,16 @@
 .NavbarHeader {
   font-family: "Merriweather";
   color: #f8f6ee;
-  margin-left: 8px;
+  margin-left: 0.5rem;
 }
 
 .Footer {
-  height: 30px;
-  margin-right: 0px;
+  height: 2rem;
+  margin-right: 0rem;
 }
 
 .FooterText {
   font-family: "Merriweather";
-  /* font-size: "25px"; */
   color: #262730;
   text-decoration: inherit;
   margin-left: auto;
@@ -36,20 +35,20 @@
   background-color: #f8f6ee;
   color: #f8f6ee;
   border-radius: 3px;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 .LogOutButton {
   background-color: #184e3b;
   color: #f8f6ee;
-  margin-right: 8px;
+  margin-right: 0.5rem;
   border-style: 1px solid #f8f6ee;
   border-radius: 5px;
 }
 
 .pagePadding {
-  padding-top: 10px;
-  padding-bottom: 40px;
+  padding-top: 0.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .Header {
@@ -61,11 +60,11 @@
 }
 
 .RecipeCard {
-  margin-bottom: 28px;
+  margin-bottom: 1rem;
 }
 
 .RecipeCardCol {
-  padding: 12px;
+  padding: 1rem;
 }
 
 .LinkHeader {
@@ -77,18 +76,17 @@
 .Link {
   font-family: "Roboto";
   color: #262730;
-  font-size: "12px";
+  font-size: "1rem";
 }
 
 .FullRecipe {
-  max-width: 600px;
+  max-width: 37.5rem;
   margin: auto;
-  /* padding: 10px; */
 }
 
 .Tagbadge {
   background-color: #f17300;
   color: #f8f6ee;
-  margin-right: 8px;
+  margin-right: 0.5rem;
   text-transform: capitalize;
 }

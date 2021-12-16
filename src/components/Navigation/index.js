@@ -47,7 +47,7 @@ export default function Navigation() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav
           style={{
-            maxWidth: "300px",
+            maxWidth: "18.75rem",
             marginLeft: "auto",
           }}
           fill
