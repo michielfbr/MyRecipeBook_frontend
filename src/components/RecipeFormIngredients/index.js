@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row, Form, Button } from "react-bootstrap";
+import { Col, Row, Form, CloseButton } from "react-bootstrap";
 import { Typeahead } from "react-bootstrap-typeahead";
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
@@ -27,7 +27,7 @@ export default function RecipeFormIngredients(props) {
   }, []);
   return (
     <Form.Group controlId="exampleForm.ControlSelect1" key={index}>
-      <Row>
+      <Row className="align-items-center">
         <Col xs={4}>
           <Typeahead
             id="ingredient title"
@@ -39,7 +39,6 @@ export default function RecipeFormIngredients(props) {
             required
             options={ingredientOptions}
             emptyLabel="new ingredient"
-            className="mb-1"
           />
         </Col>
         <Col xs={3}>
@@ -75,13 +74,13 @@ export default function RecipeFormIngredients(props) {
           </Form.Control>
         </Col>
         <Col xs={1}>
-          <Button
-            variant="secondary"
-            size="sm"
+          <CloseButton
+            // variant="secondary"
+            // size="sm"
             onClick={() => removeIngredient(index)}
           >
-            x
-          </Button>
+            {/* x */}
+          </CloseButton>
         </Col>
       </Row>
     </Form.Group>

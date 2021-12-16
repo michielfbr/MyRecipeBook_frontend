@@ -5,7 +5,7 @@ export default function RecipeDetailsIngredients(props) {
 
   return (
     <tr>
-      <td style={{ paddingRight: "20px" }}>
+      <td style={{ paddingRight: "1.5rem" }}>
         {ingredient.recipe_ingredients.quantity}{" "}
         {ingredient.recipe_ingredients.unit_singular}
         {/* {ingredient.recipe_ingredients.quantity > 1

@@ -22,9 +22,9 @@ export default function RecipeBrowserCard(props) {
             src={recipe.imageUrl}
             alt={recipe.title}
             style={{
-              width: "192px",
+              width: "12rem",
               maxWidth: "100%",
-              height: "128px",
+              height: "8rem",
               objectFit: "cover",
             }}
           ></img>
@@ -32,9 +32,12 @@ export default function RecipeBrowserCard(props) {
       </Col>
 
       <Col sm={{ span: 8, offset: 0 }} float="right" className="RecipeCardCol">
-        <Link to={`/recipe/${recipe.id}`}>
-          <h4 className="LinkHeader">{recipe.title}</h4>
-        </Link>
+        <h4>
+          <Link to={`/recipe/${recipe.id}`} className="LinkHeader">
+            {recipe.title}
+          </Link>
+        </h4>
+
         <OverlayTrigger
           placement="left-end"
           delay={{ show: 50, hide: 300 }}
