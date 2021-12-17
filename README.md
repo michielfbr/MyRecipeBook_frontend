@@ -18,14 +18,15 @@ MyRecipeBook is a ReactJS web app I built to solve my own need for a way to stor
 
 The goal of this project was to design and create a fullstack web app from scratch. Witing user stories, modeling a database, creating wireframes, build your own backend with all the neccesary endpoints, build your own frontend to talk to the backend and present the user enything it needs and finally style everything to your own liking.
 
-A big portion of work has gone into the form, where a user can add or edit an {ingredient} to the [ingredients ] nested in the {recipe}. In the backend the {recipe} is decomposed to the recipe table, the ingredients table and the join table wich holds the ingredients quantity and unit information.
-The app styling looks very clean, wich is the result of quite some effort on details there.
+A big portion of work has gone into the form, where a user can add or edit an {ingredient} to the [ingredients ] nested in the {recipe}. In the backend the {recipe} is decomposed to the recipe table, the ingredients table and the join table which holds the ingredients quantity and unit information.
+A recipe search also look over 3 different tables to return you all the recipes.
+The app styling is very clean, wich is the result of quite some effort on details there.
 
 [^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
 
 ## Screenshots
 
-![MyRecipeBook_recipeBrowser](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_demo.gif)
+![MyRecipeBook_demo](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_demo.gif)
 
 [^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
 
