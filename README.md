@@ -4,13 +4,13 @@ A place to store and browse through the recipes you collect
 
 ## Table of Contents
 
- - [Description](https://github.com/michielfbr/MyRecipeBook_frontend#description)
- - [Screenshots](https://github.com/michielfbr/MyRecipeBook_frontend#screenshots)
- - [Technology](https://github.com/michielfbr/MyRecipeBook_frontend#technology-used)
- - [Goals](https://github.com/michielfbr/MyRecipeBook_frontend#goals-for-this-project)
- - [Userstories](https://github.com/michielfbr/MyRecipeBook_frontend#user-stories)
- - [Wireframe](https://github.com/michielfbr/MyRecipeBook_frontend#wireframe)
- - [Repositories](https://github.com/michielfbr/MyRecipeBook_frontend#repositories)
+- [Description](https://github.com/michielfbr/MyRecipeBook_frontend#description)
+- [Screenshots](https://github.com/michielfbr/MyRecipeBook_frontend#screenshots)
+- [Technology](https://github.com/michielfbr/MyRecipeBook_frontend#technology-used)
+- [Goals](https://github.com/michielfbr/MyRecipeBook_frontend#goals-for-this-project)
+- [Userstories](https://github.com/michielfbr/MyRecipeBook_frontend#user-stories)
+- [Wireframe](https://github.com/michielfbr/MyRecipeBook_frontend#wireframe)
+- [Repositories](https://github.com/michielfbr/MyRecipeBook_frontend#repositories)
 
 ## Description
 
@@ -25,11 +25,7 @@ The app styling looks very clean, wich is the result of quite some effort on det
 
 ## Screenshots
 
-![MyRecipeBook_recipeBrowser](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_recipeBrowser.png)
-&nbsp;
-![MyRecipeBook_recipeDetails](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_recipeDetails.png)
-&nbsp;
-![MyRecipeBook_editRecipe](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_editRecipe.png)
+![MyRecipeBook_recipeBrowser](https://www.michielbrongers.nl/files/MyRecipeBook/MyRecipeBook_demo.gif)
 
 [^ back to top](https://github.com/michielfbr/MyRecipeBook_frontend#myrecipebook-stew)
 
